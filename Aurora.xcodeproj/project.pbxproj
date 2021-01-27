@@ -26,6 +26,18 @@
 		0258A8B425C0326700DD7FD6 /* SecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8B225C0326700DD7FD6 /* SecondPage.swift */; };
 		0258A8B825C033A400DD7FD6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8B725C033A400DD7FD6 /* Home.swift */; };
 		0258A8B925C033A400DD7FD6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8B725C033A400DD7FD6 /* Home.swift */; };
+		0258A8C225C0A0E300DD7FD6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8C125C0A0E300DD7FD6 /* Login.swift */; };
+		0258A8C325C0A0E300DD7FD6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8C125C0A0E300DD7FD6 /* Login.swift */; };
+		0258A8CA25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */; };
+		0258A8CB25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */; };
+		0258A8D025C0D85600DD7FD6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8CF25C0D85600DD7FD6 /* File.swift */; };
+		0258A8D125C0D85600DD7FD6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8CF25C0D85600DD7FD6 /* File.swift */; };
+		0258A8D725C1692300DD7FD6 /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8D625C1692300DD7FD6 /* NumberPadView.swift */; };
+		0258A8D825C1692300DD7FD6 /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8D625C1692300DD7FD6 /* NumberPadView.swift */; };
+		0258A8E425C18C2100DD7FD6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8E325C18C2100DD7FD6 /* AlertView.swift */; };
+		0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8E325C18C2100DD7FD6 /* AlertView.swift */; };
+		0258A8EB25C1F2FA00DD7FD6 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */; };
+		0258A8EC25C1F2FA00DD7FD6 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +53,12 @@
 		0258A8AD25C0323000DD7FD6 /* FirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPage.swift; sourceTree = "<group>"; };
 		0258A8B225C0326700DD7FD6 /* SecondPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPage.swift; sourceTree = "<group>"; };
 		0258A8B725C033A400DD7FD6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		0258A8C125C0A0E300DD7FD6 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0258A8CF25C0D85600DD7FD6 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		0258A8D625C1692300DD7FD6 /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
+		0258A8E325C18C2100DD7FD6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +97,13 @@
 		0258A87525C02CCA00DD7FD6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0258A8DD25C18B9000DD7FD6 /* Utilities */,
+				0258A8CE25C0D84C00DD7FD6 /* Model */,
+				0258A8C825C0D6D400DD7FD6 /* ViewModel */,
+				0258A8C025C0A0CE00DD7FD6 /* View */,
 				0258A87625C02CCA00DD7FD6 /* AuroraApp.swift */,
 				0258A89925C02D2400DD7FD6 /* GoogleService-Info.plist */,
 				0258A87825C02CCB00DD7FD6 /* Assets.xcassets */,
-				0258A87725C02CCA00DD7FD6 /* ContentView.swift */,
 				0258A8AD25C0323000DD7FD6 /* FirstPage.swift */,
 				0258A8B225C0326700DD7FD6 /* SecondPage.swift */,
 				0258A8B725C033A400DD7FD6 /* Home.swift */,
@@ -114,6 +135,41 @@
 				0258A88825C02CCB00DD7FD6 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		0258A8C025C0A0CE00DD7FD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0258A87725C02CCA00DD7FD6 /* ContentView.swift */,
+				0258A8C125C0A0E300DD7FD6 /* Login.swift */,
+				0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */,
+				0258A8D625C1692300DD7FD6 /* NumberPadView.swift */,
+				0258A8E325C18C2100DD7FD6 /* AlertView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0258A8C825C0D6D400DD7FD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0258A8CE25C0D84C00DD7FD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0258A8CF25C0D85600DD7FD6 /* File.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0258A8DD25C18B9000DD7FD6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,11 +281,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0258A8EB25C1F2FA00DD7FD6 /* Verification.swift in Sources */,
 				0258A8B325C0326700DD7FD6 /* SecondPage.swift in Sources */,
 				0258A88B25C02CCB00DD7FD6 /* ContentView.swift in Sources */,
+				0258A8E425C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B825C033A400DD7FD6 /* Home.swift in Sources */,
+				0258A8C225C0A0E300DD7FD6 /* Login.swift in Sources */,
+				0258A8D725C1692300DD7FD6 /* NumberPadView.swift in Sources */,
 				0258A88925C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
+				0258A8D025C0D85600DD7FD6 /* File.swift in Sources */,
 				0258A8AE25C0323000DD7FD6 /* FirstPage.swift in Sources */,
+				0258A8CA25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,11 +299,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0258A8EC25C1F2FA00DD7FD6 /* Verification.swift in Sources */,
 				0258A8B425C0326700DD7FD6 /* SecondPage.swift in Sources */,
 				0258A88C25C02CCB00DD7FD6 /* ContentView.swift in Sources */,
+				0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B925C033A400DD7FD6 /* Home.swift in Sources */,
+				0258A8C325C0A0E300DD7FD6 /* Login.swift in Sources */,
+				0258A8D825C1692300DD7FD6 /* NumberPadView.swift in Sources */,
 				0258A88A25C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
+				0258A8D125C0D85600DD7FD6 /* File.swift in Sources */,
 				0258A8AF25C0323000DD7FD6 /* FirstPage.swift in Sources */,
+				0258A8CB25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
