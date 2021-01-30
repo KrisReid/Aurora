@@ -32,8 +32,6 @@
 		0258A8CB25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */; };
 		0258A8D025C0D85600DD7FD6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8CF25C0D85600DD7FD6 /* File.swift */; };
 		0258A8D125C0D85600DD7FD6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8CF25C0D85600DD7FD6 /* File.swift */; };
-		0258A8D725C1692300DD7FD6 /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8D625C1692300DD7FD6 /* NumberPadView.swift */; };
-		0258A8D825C1692300DD7FD6 /* NumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8D625C1692300DD7FD6 /* NumberPadView.swift */; };
 		0258A8E425C18C2100DD7FD6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8E325C18C2100DD7FD6 /* AlertView.swift */; };
 		0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8E325C18C2100DD7FD6 /* AlertView.swift */; };
 		0258A8EB25C1F2FA00DD7FD6 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */; };
@@ -56,7 +54,6 @@
 		0258A8C125C0A0E300DD7FD6 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0258A8CF25C0D85600DD7FD6 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		0258A8D625C1692300DD7FD6 /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
 		0258A8E325C18C2100DD7FD6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,7 +103,6 @@
 				0258A87825C02CCB00DD7FD6 /* Assets.xcassets */,
 				0258A8AD25C0323000DD7FD6 /* FirstPage.swift */,
 				0258A8B225C0326700DD7FD6 /* SecondPage.swift */,
-				0258A8B725C033A400DD7FD6 /* Home.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -143,8 +139,8 @@
 				0258A87725C02CCA00DD7FD6 /* ContentView.swift */,
 				0258A8C125C0A0E300DD7FD6 /* Login.swift */,
 				0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */,
-				0258A8D625C1692300DD7FD6 /* NumberPadView.swift */,
 				0258A8E325C18C2100DD7FD6 /* AlertView.swift */,
+				0258A8B725C033A400DD7FD6 /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,7 +283,6 @@
 				0258A8E425C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B825C033A400DD7FD6 /* Home.swift in Sources */,
 				0258A8C225C0A0E300DD7FD6 /* Login.swift in Sources */,
-				0258A8D725C1692300DD7FD6 /* NumberPadView.swift in Sources */,
 				0258A88925C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
 				0258A8D025C0D85600DD7FD6 /* File.swift in Sources */,
 				0258A8AE25C0323000DD7FD6 /* FirstPage.swift in Sources */,
@@ -305,7 +300,6 @@
 				0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B925C033A400DD7FD6 /* Home.swift in Sources */,
 				0258A8C325C0A0E300DD7FD6 /* Login.swift in Sources */,
-				0258A8D825C1692300DD7FD6 /* NumberPadView.swift in Sources */,
 				0258A88A25C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
 				0258A8D125C0D85600DD7FD6 /* File.swift in Sources */,
 				0258A8AF25C0323000DD7FD6 /* FirstPage.swift in Sources */,

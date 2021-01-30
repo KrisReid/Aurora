@@ -33,20 +33,26 @@ class LoginViewModel: ObservableObject {
         
         // enabling testing code...
         // disable when you need to test with real device...
-        Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = false
         
         let number = "+\(getCountryCode())\(mobileNumber)"
+        
+        print(number)
         PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { (CODE, err) in
             
+            print("Code: \(CODE ?? "Nada")")
+            
             if let error = err{
-                
+                print(error.localizedDescription)
                 self.errorMsg = error.localizedDescription
                 withAnimation{ self.error.toggle()}
                 return
             }
             
             self.CODE = CODE ?? ""
+            print(self.gotoVerify)
             self.gotoVerify = true
+            print(self.gotoVerify)
         }
     }
     

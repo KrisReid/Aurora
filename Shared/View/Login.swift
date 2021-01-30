@@ -10,9 +10,7 @@ import FirebaseAuth
 
 struct Login: View {
     
-    
     @StateObject var loginData = LoginViewModel()
-    @State var mobileNumber = ""
     
     var body: some View {
         
@@ -49,8 +47,7 @@ struct Login: View {
                         .background(Color("TextField_Color"))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     
-                    
-                    TextField("Number", text: $mobileNumber)
+                    TextField("Number", text: $loginData.mobileNumber)
                         .keyboardType(.numberPad)
                         .padding()
                         .background(Color("TextField_Color"))
@@ -58,23 +55,16 @@ struct Login: View {
                     
                 } .padding(.top, 15)
                 
-                
-                
-                
                 NavigationLink(destination: Verification(loginData: loginData),isActive: $loginData.gotoVerify) {
                     
-                    Text("")
-                        .hidden()
+                    Button(action: loginData.sendCode, label: {
+                        Text("Continue")
+                            .frame(width: UIScreen.main.bounds.width - 30,height: 50)
+                    })
+                    .foregroundColor(.white)
+                    .background(Color.orange)
+                    .cornerRadius(10)
                 }
-                
-                Button(action: loginData.sendCode, label: {
-                    Text("Continue")
-                        .frame(width: UIScreen.main.bounds.width - 30,height: 50)
-                })
-                .foregroundColor(.white)
-                .background(Color.orange)
-                .cornerRadius(10)
-                
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)

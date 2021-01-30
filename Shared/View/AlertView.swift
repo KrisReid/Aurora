@@ -21,14 +21,13 @@ struct AlertView: View {
                 .foregroundColor(.gray)
             
             Button(action: {
-                // closing popup...
                 show.toggle()
             }, label: {
                 Text("Close")
                     .foregroundColor(.black)
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 100)
-                    .background(Color("yellow"))
+                    .background(Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)))
                     .cornerRadius(15)
             })
             
