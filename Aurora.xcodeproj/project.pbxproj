@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0218AF3E25C52EE9006D2E49 /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF3D25C52EE9006D2E49 /* AccountCreation.swift */; };
+		0218AF3F25C52EE9006D2E49 /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF3D25C52EE9006D2E49 /* AccountCreation.swift */; };
+		0218AF4425C534DD006D2E49 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF4325C534DD006D2E49 /* PhotoCaptureView.swift */; };
+		0218AF4525C534DD006D2E49 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF4325C534DD006D2E49 /* PhotoCaptureView.swift */; };
+		0218AF4925C534F7006D2E49 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF4825C534F7006D2E49 /* ImagePicker.swift */; };
+		0218AF4A25C534F7006D2E49 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF4825C534F7006D2E49 /* ImagePicker.swift */; };
+		0218AF5925C53653006D2E49 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF5825C53653006D2E49 /* Account.swift */; };
+		0218AF5A25C53653006D2E49 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF5825C53653006D2E49 /* Account.swift */; };
+		0218AF6025C536F9006D2E49 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF5F25C536F9006D2E49 /* AccountViewModel.swift */; };
+		0218AF6125C536F9006D2E49 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF5F25C536F9006D2E49 /* AccountViewModel.swift */; };
+		0218AF6725C58A72006D2E49 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF6625C58A72006D2E49 /* Indicator.swift */; };
+		0218AF6825C58A72006D2E49 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0218AF6625C58A72006D2E49 /* Indicator.swift */; };
 		0258A88925C02CCB00DD7FD6 /* AuroraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A87625C02CCA00DD7FD6 /* AuroraApp.swift */; };
 		0258A88A25C02CCB00DD7FD6 /* AuroraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A87625C02CCA00DD7FD6 /* AuroraApp.swift */; };
 		0258A88B25C02CCB00DD7FD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A87725C02CCA00DD7FD6 /* ContentView.swift */; };
@@ -20,10 +32,6 @@
 		0258A8A425C02E7600DD7FD6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0258A8A325C02E7600DD7FD6 /* FirebaseAuth */; };
 		0258A8A625C02E7600DD7FD6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0258A8A525C02E7600DD7FD6 /* FirebaseFirestore */; };
 		0258A8A825C02E7600DD7FD6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0258A8A725C02E7600DD7FD6 /* FirebaseDatabase */; };
-		0258A8AE25C0323000DD7FD6 /* FirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8AD25C0323000DD7FD6 /* FirstPage.swift */; };
-		0258A8AF25C0323000DD7FD6 /* FirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8AD25C0323000DD7FD6 /* FirstPage.swift */; };
-		0258A8B325C0326700DD7FD6 /* SecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8B225C0326700DD7FD6 /* SecondPage.swift */; };
-		0258A8B425C0326700DD7FD6 /* SecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8B225C0326700DD7FD6 /* SecondPage.swift */; };
 		0258A8B825C033A400DD7FD6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8B725C033A400DD7FD6 /* Home.swift */; };
 		0258A8B925C033A400DD7FD6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8B725C033A400DD7FD6 /* Home.swift */; };
 		0258A8C225C0A0E300DD7FD6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8C125C0A0E300DD7FD6 /* Login.swift */; };
@@ -39,6 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0218AF3D25C52EE9006D2E49 /* AccountCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
+		0218AF4325C534DD006D2E49 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
+		0218AF4825C534F7006D2E49 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		0218AF5825C53653006D2E49 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		0218AF5F25C536F9006D2E49 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		0218AF6625C58A72006D2E49 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		0258A87625C02CCA00DD7FD6 /* AuroraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraApp.swift; sourceTree = "<group>"; };
 		0258A87725C02CCA00DD7FD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0258A87825C02CCB00DD7FD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,8 +62,6 @@
 		0258A88725C02CCB00DD7FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0258A88825C02CCB00DD7FD6 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		0258A89925C02D2400DD7FD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0258A8AD25C0323000DD7FD6 /* FirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPage.swift; sourceTree = "<group>"; };
-		0258A8B225C0326700DD7FD6 /* SecondPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPage.swift; sourceTree = "<group>"; };
 		0258A8B725C033A400DD7FD6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0258A8C125C0A0E300DD7FD6 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -81,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0218AF5125C5353D006D2E49 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0218AF4325C534DD006D2E49 /* PhotoCaptureView.swift */,
+				0258A8E325C18C2100DD7FD6 /* AlertView.swift */,
+				0218AF6625C58A72006D2E49 /* Indicator.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0258A87025C02CCA00DD7FD6 = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +123,6 @@
 				0258A87625C02CCA00DD7FD6 /* AuroraApp.swift */,
 				0258A89925C02D2400DD7FD6 /* GoogleService-Info.plist */,
 				0258A87825C02CCB00DD7FD6 /* Assets.xcassets */,
-				0258A8AD25C0323000DD7FD6 /* FirstPage.swift */,
-				0258A8B225C0326700DD7FD6 /* SecondPage.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -139,8 +159,9 @@
 				0258A87725C02CCA00DD7FD6 /* ContentView.swift */,
 				0258A8C125C0A0E300DD7FD6 /* Login.swift */,
 				0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */,
-				0258A8E325C18C2100DD7FD6 /* AlertView.swift */,
+				0218AF3D25C52EE9006D2E49 /* AccountCreation.swift */,
 				0258A8B725C033A400DD7FD6 /* Home.swift */,
+				0218AF5125C5353D006D2E49 /* Helpers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */,
+				0218AF5F25C536F9006D2E49 /* AccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -157,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				0258A8CF25C0D85600DD7FD6 /* File.swift */,
+				0218AF5825C53653006D2E49 /* Account.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +187,7 @@
 		0258A8DD25C18B9000DD7FD6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0218AF4825C534F7006D2E49 /* ImagePicker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -277,15 +301,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0218AF4925C534F7006D2E49 /* ImagePicker.swift in Sources */,
+				0218AF6725C58A72006D2E49 /* Indicator.swift in Sources */,
 				0258A8EB25C1F2FA00DD7FD6 /* Verification.swift in Sources */,
-				0258A8B325C0326700DD7FD6 /* SecondPage.swift in Sources */,
+				0218AF3E25C52EE9006D2E49 /* AccountCreation.swift in Sources */,
+				0218AF6025C536F9006D2E49 /* AccountViewModel.swift in Sources */,
 				0258A88B25C02CCB00DD7FD6 /* ContentView.swift in Sources */,
 				0258A8E425C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B825C033A400DD7FD6 /* Home.swift in Sources */,
 				0258A8C225C0A0E300DD7FD6 /* Login.swift in Sources */,
 				0258A88925C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
+				0218AF5925C53653006D2E49 /* Account.swift in Sources */,
 				0258A8D025C0D85600DD7FD6 /* File.swift in Sources */,
-				0258A8AE25C0323000DD7FD6 /* FirstPage.swift in Sources */,
+				0218AF4425C534DD006D2E49 /* PhotoCaptureView.swift in Sources */,
 				0258A8CA25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,15 +322,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0218AF4A25C534F7006D2E49 /* ImagePicker.swift in Sources */,
+				0218AF6825C58A72006D2E49 /* Indicator.swift in Sources */,
 				0258A8EC25C1F2FA00DD7FD6 /* Verification.swift in Sources */,
-				0258A8B425C0326700DD7FD6 /* SecondPage.swift in Sources */,
+				0218AF3F25C52EE9006D2E49 /* AccountCreation.swift in Sources */,
+				0218AF6125C536F9006D2E49 /* AccountViewModel.swift in Sources */,
 				0258A88C25C02CCB00DD7FD6 /* ContentView.swift in Sources */,
 				0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B925C033A400DD7FD6 /* Home.swift in Sources */,
 				0258A8C325C0A0E300DD7FD6 /* Login.swift in Sources */,
 				0258A88A25C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
+				0218AF5A25C53653006D2E49 /* Account.swift in Sources */,
 				0258A8D125C0D85600DD7FD6 /* File.swift in Sources */,
-				0258A8AF25C0323000DD7FD6 /* FirstPage.swift in Sources */,
+				0218AF4525C534DD006D2E49 /* PhotoCaptureView.swift in Sources */,
 				0258A8CB25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

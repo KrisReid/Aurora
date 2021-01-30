@@ -19,6 +19,7 @@ struct Login: View {
             LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
+            
             VStack {
                 
                 Image("aurora_icon")
@@ -65,17 +66,23 @@ struct Login: View {
                     .background(Color.orange)
                     .cornerRadius(10)
                 }
+                
             }
             .navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .padding()
+            
+            if loginData.loading {
+                IndicatorView()
+            }
+            
+            if loginData.error{
+                AlertView(msg: loginData.errorMsg, show: $loginData.error)
+            }
         }
         .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
         
-        if loginData.error{
-            AlertView(msg: loginData.errorMsg, show: $loginData.error)
-        }
     }
     
 }

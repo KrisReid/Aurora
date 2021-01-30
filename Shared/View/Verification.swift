@@ -11,6 +11,7 @@ struct Verification: View {
     
     @ObservedObject var loginData : LoginViewModel
     @Environment(\.presentationMode) var present
+    
     @State private var isMoving: Bool = false
     
     
@@ -57,11 +58,11 @@ struct Verification: View {
                     .padding(.bottom)
                 
                 TextField("Code", text: $loginData.code)
-                        .keyboardType(.numberPad)
-                        .padding()
-                        .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding()
+                    .keyboardType(.numberPad)
+                    .padding()
+                    .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.horizontal)
                 
                 Button(action: loginData.verifyCode, label: {
                     Text("Verify and Create Account")
@@ -76,9 +77,20 @@ struct Verification: View {
             if loginData.error{
                 AlertView(msg: loginData.errorMsg, show: $loginData.error)
             }
+            
+            if loginData.loading {
+                IndicatorView()
+            }
+            
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .sheet(isPresented: $loginData.accountCreation) {
+            AccountCreation(loginData: loginData)
+        }
+        .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
+        
+        
     }
     
 }
