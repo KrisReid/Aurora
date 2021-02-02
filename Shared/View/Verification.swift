@@ -19,14 +19,14 @@ struct Verification: View {
         
         ZStack (alignment: .topLeading) {
             
-            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color("Background_Color"), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             HStack {
                 Button(action: {present.wrappedValue.dismiss()}) {
-                    Image(systemName: "arrow.left")
-                        .font(.title2)
-                        .foregroundColor(.orange)
+                    Image(systemName: "arrow.left.circle")
+                        .font(.title)
+                        .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
                 }
                 if loginData.loading{ProgressView()}
             }
@@ -49,7 +49,8 @@ struct Verification: View {
                         .onAppear() {
                             self.isMoving.toggle()
                         }
-                        .offset(x: self.isMoving ? 0 : UIScreen.main.bounds.width - 120, y: -40)
+                        .offset(x: 0, y: self.isMoving ? 0 - 80 : -UIScreen.main.bounds.height - 120)
+//                        .offset(x: self.isMoving ? 0 : UIScreen.main.bounds.width - 120, y: -40)
                         .animation(.interpolatingSpring(mass: 1, stiffness: 50, damping: 10, initialVelocity: 0))
                 }
 
@@ -60,16 +61,16 @@ struct Verification: View {
                 TextField("Code", text: $loginData.code)
                     .keyboardType(.numberPad)
                     .padding()
-                    .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                    .background(Color("TextField_Color"))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.horizontal)
                 
                 Button(action: loginData.verifyCode, label: {
-                    Text("Verify and Create Account")
+                    Text("Verify")
                         .frame(width: UIScreen.main.bounds.width - 30,height: 50)
                 })
                 .foregroundColor(.white)
-                .background(Color.orange)
+                .background(Color("Button_Background_Color"))
                 .cornerRadius(10)
                 .padding()
             }
@@ -90,7 +91,6 @@ struct Verification: View {
         }
         .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
         
-        
     }
     
 }
@@ -98,5 +98,7 @@ struct Verification: View {
 struct Verification_Previews: PreviewProvider {
     static var previews: some View {
         Verification(loginData: .init())
+        Verification(loginData: .init())
+            .colorScheme(.dark)
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AlertView: View {
     var msg: String
     @Binding var show: Bool
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 15, content: {
@@ -27,7 +28,7 @@ struct AlertView: View {
                     .foregroundColor(.black)
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 100)
-                    .background(Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)))
+                    .background(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
                     .cornerRadius(15)
             })
             

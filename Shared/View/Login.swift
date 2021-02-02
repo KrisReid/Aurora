@@ -16,7 +16,7 @@ struct Login: View {
         
         ZStack {
             
-            LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [Color("Background_Color"), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             
@@ -30,18 +30,17 @@ struct Login: View {
                 Text("Welcome to Aurora")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                    .foregroundColor(Color(#colorLiteral(red: 0.9063871503, green: 0.9065392613, blue: 0.9063671231, alpha: 1)))
+                    .foregroundColor(Color("Text_Color"))
                     .padding(.top, 50)
                 
                 Text("Please enter your mobile number")
                     .multilineTextAlignment(.center)
                     .font(.body)
-                    .foregroundColor(Color(#colorLiteral(red: 0.9063871503, green: 0.9065392613, blue: 0.9063671231, alpha: 1)))
+                    .foregroundColor(Color("Text_Color"))
                     .padding(.top, 6)
                 
                 
                 HStack{
-                    
                     Text("+ \(loginData.getCountryCode())")
                         .frame(width: 45)
                         .padding()
@@ -63,8 +62,9 @@ struct Login: View {
                             .frame(width: UIScreen.main.bounds.width - 30,height: 50)
                     })
                     .foregroundColor(.white)
-                    .background(Color.orange)
+                    .background(Color("Button_Background_Color"))
                     .cornerRadius(10)
+                    .padding(.top, 20)
                 }
                 
             }
@@ -90,5 +90,7 @@ struct Login: View {
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
         Login()
+        Login()
+            .colorScheme(.dark)
     }
 }
