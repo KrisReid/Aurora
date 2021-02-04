@@ -44,12 +44,14 @@ struct Login: View {
                     Text("+ \(loginData.getCountryCode())")
                         .frame(width: 45)
                         .padding()
+                        .foregroundColor(Color("TextField_Text_Color"))
                         .background(Color("TextField_Color"))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                     TextField("Number", text: $loginData.mobileNumber)
                         .keyboardType(.numberPad)
                         .padding()
+                        .foregroundColor(Color("TextField_Text_Color"))
                         .background(Color("TextField_Color"))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     
@@ -61,7 +63,7 @@ struct Login: View {
                         Text("Continue")
                             .frame(width: UIScreen.main.bounds.width - 30,height: 50)
                     })
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("Button_Text_Color"))
                     .background(Color("Button_Background_Color"))
                     .cornerRadius(10)
                     .padding(.top, 20)

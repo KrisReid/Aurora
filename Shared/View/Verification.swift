@@ -11,6 +11,7 @@ struct Verification: View {
     
     @ObservedObject var loginData : LoginViewModel
     @Environment(\.presentationMode) var present
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var isMoving: Bool = false
     
@@ -41,7 +42,7 @@ struct Verification: View {
                         .frame(width: 300, height: 300)
                         .padding()
                     
-                    Image("aurora_sms")
+                    Image(colorScheme == .dark ? "aurora_sms_dark" : "aurora_sms")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 100, height: 100)
@@ -50,7 +51,6 @@ struct Verification: View {
                             self.isMoving.toggle()
                         }
                         .offset(x: 0, y: self.isMoving ? 0 - 80 : -UIScreen.main.bounds.height - 120)
-//                        .offset(x: self.isMoving ? 0 : UIScreen.main.bounds.width - 120, y: -40)
                         .animation(.interpolatingSpring(mass: 1, stiffness: 50, damping: 10, initialVelocity: 0))
                 }
 
@@ -61,6 +61,7 @@ struct Verification: View {
                 TextField("Code", text: $loginData.code)
                     .keyboardType(.numberPad)
                     .padding()
+                    .foregroundColor(Color("TextField_Text_Color"))
                     .background(Color("TextField_Color"))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.horizontal)
@@ -69,7 +70,7 @@ struct Verification: View {
                     Text("Verify")
                         .frame(width: UIScreen.main.bounds.width - 30,height: 50)
                 })
-                .foregroundColor(.white)
+                .foregroundColor(Color("Button_Text_Color"))
                 .background(Color("Button_Background_Color"))
                 .cornerRadius(10)
                 .padding()
