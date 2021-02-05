@@ -9,13 +9,15 @@ import Foundation
 
 
 struct User: Codable {
-    var email: String?
-    var displayName: String?
-    var profileImageUrl: String?
+    
+    var name: String?
+    var mobile: String?
+    var image: String?
 
-    init(email: String?, displayName: String?, profileImageUrl: String?) {
-        self.email = email
-        self.displayName = displayName
-        self.profileImageUrl = profileImageUrl
+    init(name: String?, mobile: String?, image: String?) {
+        self.name = name
+        self.mobile = mobile
+        self.image = image
     }
 }
+

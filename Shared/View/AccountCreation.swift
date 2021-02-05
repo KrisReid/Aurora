@@ -37,7 +37,6 @@ struct AccountCreation: View {
                             .foregroundColor(colorScheme == .dark ? Color(#colorLiteral(red: 0.1662652493, green: 0.1663002372, blue: 0.1662606299, alpha: 1)) : Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
                             .frame(width: 200, height: 200)
                             .clipShape(Circle())
-                            .shadow(radius: 5)
                             .padding()
                             .font(.system(size: 1, weight: .ultraLight))
                     }
@@ -56,18 +55,7 @@ struct AccountCreation: View {
                 
                 
                 Button(action: {
-
-                    if loginData.name != "" {
-                        
-                        loginData.CreateUser(image: loginData.inputImage!) { (status) in
-                            if status {
-
-                                // DO SOMETHING SURELY???
-                                
-                            }
-                        }
-                    }
-                    
+                    loginData.CreateUser()
                 }) {
                     Text("Create an account")
                         .frame(width: UIScreen.main.bounds.width - 30,height: 50)
@@ -80,6 +68,15 @@ struct AccountCreation: View {
             
             .sheet(isPresented: $loginData.showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: $loginData.inputImage)
+                
+            }
+            
+            if loginData.error{
+                AlertView(msg: loginData.errorMsg, show: $loginData.error)
+            }
+            
+            if loginData.loading {
+                IndicatorView()
             }
             
         }

@@ -18,7 +18,6 @@ struct ContentView: View {
                 Home()
             }
             else{
-                
                 NavigationView{
                     Login()
                         .navigationBarHidden(true)

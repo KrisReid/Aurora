@@ -31,8 +31,6 @@ struct AlertView: View {
                     .background(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
                     .cornerRadius(15)
             })
-            
-            // centering the button
             .frame(alignment: .center)
         })
         .padding()
