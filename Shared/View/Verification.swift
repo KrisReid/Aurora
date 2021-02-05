@@ -54,7 +54,8 @@ struct Verification: View {
                         .animation(.interpolatingSpring(mass: 1, stiffness: 50, damping: 10, initialVelocity: 0))
                 }
 
-                Text("Code sent to + \(loginData.getCountryCode()) \(loginData.mobileNumber)")
+//                Text("Code sent to + \(loginData.getCountryCode()) \(loginData.mobileNumber)")
+                Text("Code sent to + \(loginData.getCountryCode()) \(loginData.user.mobileNumber)")
                     .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
                     .padding(.bottom)
                 

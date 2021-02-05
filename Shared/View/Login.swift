@@ -10,8 +10,8 @@ import FirebaseAuth
 
 struct Login: View {
     
-    @StateObject var loginData = LoginViewModel()
-    
+    @ObservedObject var loginData = LoginViewModel()
+        
     var body: some View {
         
         ZStack {
@@ -48,7 +48,8 @@ struct Login: View {
                         .background(Color("TextField_Color"))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     
-                    TextField("Number", text: $loginData.mobileNumber)
+//                    TextField("Number", text: $loginData.mobileNumber)
+                    TextField("Number", text: $loginData.user.mobileNumber)
                         .keyboardType(.numberPad)
                         .padding()
                         .foregroundColor(Color("TextField_Text_Color"))

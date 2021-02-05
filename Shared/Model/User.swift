@@ -10,14 +10,14 @@ import Foundation
 
 struct User: Codable {
     
-    var name: String?
-    var mobile: String?
-    var image: String?
+    var name: String
+    var mobileNumber: String
+    var imageUrl: String
 
-    init(name: String?, mobile: String?, image: String?) {
+    init(name: String, mobileNumber: String, imageUrl: String) {
         self.name = name
-        self.mobile = mobile
-        self.image = image
+        self.mobileNumber = mobileNumber
+        self.imageUrl = imageUrl
     }
 }
 

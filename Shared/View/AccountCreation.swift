@@ -25,7 +25,8 @@ struct AccountCreation: View {
                     if loginData.image != nil {
                         loginData.image?
                             .resizable()
-                            .renderingMode(.original)
+                            .scaledToFill()
+//                            .renderingMode(.original)
                             .frame(width: 200, height: 200)
                             .clipShape(Circle())
                             .shadow(radius: 5)
@@ -46,7 +47,9 @@ struct AccountCreation: View {
                 }
 
                 
-                TextField("Name", text: $loginData.name)
+//                TextField("Name", text: $loginData.name)
+                TextField("Name", text: $loginData.user.name)
+
                     .keyboardType(.default)
                     .padding()
                     .background(Color("TextField_Color"))
