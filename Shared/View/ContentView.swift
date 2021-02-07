@@ -17,7 +17,7 @@ struct ContentView: View {
             if status{
                 Home()
             }
-            else{
+            else {
                 NavigationView{
                     Login()
                         .navigationBarHidden(true)

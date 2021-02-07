@@ -10,15 +10,14 @@ import FirebaseAuth
 
 struct Login: View {
     
-    @ObservedObject var loginData = LoginViewModel()
-        
+    @ObservedObject var loginVM = LoginViewModel()
+
     var body: some View {
-        
+                
         ZStack {
             
             LinearGradient(gradient: Gradient(colors: [Color("Background_Color"), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            
             
             VStack {
                 
@@ -41,15 +40,15 @@ struct Login: View {
                 
                 
                 HStack{
-                    Text("+ \(loginData.getCountryCode())")
+                    
+                    Text("+ \(loginVM.getCountryCode())")
                         .frame(width: 45)
                         .padding()
                         .foregroundColor(Color("TextField_Text_Color"))
                         .background(Color("TextField_Color"))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     
-//                    TextField("Number", text: $loginData.mobileNumber)
-                    TextField("Number", text: $loginData.user.mobileNumber)
+                    TextField("Number", text: $loginVM.mobileNumber)
                         .keyboardType(.numberPad)
                         .padding()
                         .foregroundColor(Color("TextField_Text_Color"))
@@ -58,9 +57,10 @@ struct Login: View {
                     
                 } .padding(.top, 15)
                 
-                NavigationLink(destination: Verification(loginData: loginData),isActive: $loginData.gotoVerify) {
+                
+                NavigationLink(destination: Verification(loginVM: loginVM),isActive: $loginVM.gotoVerify) {
                     
-                    Button(action: loginData.sendCode, label: {
+                    Button(action: loginVM.sendCode, label: {
                         Text("Continue")
                             .frame(width: UIScreen.main.bounds.width - 30,height: 50)
                     })
@@ -76,12 +76,12 @@ struct Login: View {
             .navigationBarBackButtonHidden(true)
             .padding()
             
-            if loginData.loading {
+            if loginVM.loading {
                 IndicatorView()
             }
             
-            if loginData.error{
-                AlertView(msg: loginData.errorMsg, show: $loginData.error)
+            if loginVM.error{
+                AlertView(msg: loginVM.errorMsg, show: $loginVM.error)
             }
         }
         .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})

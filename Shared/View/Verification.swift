@@ -9,7 +9,8 @@ import SwiftUI
 
 struct Verification: View {
     
-    @ObservedObject var loginData : LoginViewModel
+    @ObservedObject var loginVM : LoginViewModel
+    
     @Environment(\.presentationMode) var present
     @Environment(\.colorScheme) var colorScheme
     
@@ -29,7 +30,7 @@ struct Verification: View {
                         .font(.title)
                         .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
                 }
-                if loginData.loading{ProgressView()}
+                if loginVM.loading{ProgressView()}
             }
             .padding()
             
@@ -54,12 +55,11 @@ struct Verification: View {
                         .animation(.interpolatingSpring(mass: 1, stiffness: 50, damping: 10, initialVelocity: 0))
                 }
 
-//                Text("Code sent to + \(loginData.getCountryCode()) \(loginData.mobileNumber)")
-                Text("Code sent to + \(loginData.getCountryCode()) \(loginData.user.mobileNumber)")
+                Text("Code sent to + \(loginVM.getCountryCode()) \(loginVM.mobileNumber)")
                     .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
                     .padding(.bottom)
                 
-                TextField("Code", text: $loginData.code)
+                TextField("Code", text: $loginVM.code)
                     .keyboardType(.numberPad)
                     .padding()
                     .foregroundColor(Color("TextField_Text_Color"))
@@ -67,7 +67,7 @@ struct Verification: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding(.horizontal)
                 
-                Button(action: loginData.verifyCode, label: {
+                Button(action: loginVM.verifyCode, label: {
                     Text("Verify")
                         .frame(width: UIScreen.main.bounds.width - 30,height: 50)
                 })
@@ -77,19 +77,19 @@ struct Verification: View {
                 .padding()
             }
             
-            if loginData.error{
-                AlertView(msg: loginData.errorMsg, show: $loginData.error)
+            if loginVM.error{
+                AlertView(msg: loginVM.errorMsg, show: $loginVM.error)
             }
             
-            if loginData.loading {
+            if loginVM.loading {
                 IndicatorView()
             }
             
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-        .sheet(isPresented: $loginData.accountCreation) {
-            AccountCreation(loginData: loginData)
+        .sheet(isPresented: $loginVM.accountCreation) {
+            AccountCreation(loginVM: loginVM)
         }
         .gesture(DragGesture().onChanged{_ in UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)})
         
@@ -99,8 +99,8 @@ struct Verification: View {
 
 struct Verification_Previews: PreviewProvider {
     static var previews: some View {
-        Verification(loginData: .init())
-        Verification(loginData: .init())
+        Verification(loginVM: .init())
+        Verification(loginVM: .init())
             .colorScheme(.dark)
     }
 }

@@ -40,6 +40,8 @@
 		0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8E325C18C2100DD7FD6 /* AlertView.swift */; };
 		0258A8EB25C1F2FA00DD7FD6 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */; };
 		0258A8EC25C1F2FA00DD7FD6 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */; };
+		02AF33D625D07D110031F416 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF33D525D07D110031F416 /* HomeViewModel.swift */; };
+		02AF33D725D07D110031F416 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF33D525D07D110031F416 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,7 @@
 		0258A8CF25C0D85600DD7FD6 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		0258A8E325C18C2100DD7FD6 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		0258A8EA25C1F2FA00DD7FD6 /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
+		02AF33D525D07D110031F416 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */,
+				02AF33D525D07D110031F416 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -301,6 +305,7 @@
 				0258A8E425C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B825C033A400DD7FD6 /* Home.swift in Sources */,
 				0258A8C225C0A0E300DD7FD6 /* Login.swift in Sources */,
+				02AF33D625D07D110031F416 /* HomeViewModel.swift in Sources */,
 				0258A88925C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
 				0218AF5925C53653006D2E49 /* User.swift in Sources */,
 				0258A8D025C0D85600DD7FD6 /* Countries.swift in Sources */,
@@ -320,6 +325,7 @@
 				0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */,
 				0258A8B925C033A400DD7FD6 /* Home.swift in Sources */,
 				0258A8C325C0A0E300DD7FD6 /* Login.swift in Sources */,
+				02AF33D725D07D110031F416 /* HomeViewModel.swift in Sources */,
 				0258A88A25C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
 				0218AF5A25C53653006D2E49 /* User.swift in Sources */,
 				0258A8D125C0D85600DD7FD6 /* Countries.swift in Sources */,

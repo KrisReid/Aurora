@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AccountCreation: View {
-    
-    @ObservedObject var loginData : LoginViewModel
+        
+    @ObservedObject var loginVM : LoginViewModel
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -22,8 +22,8 @@ struct AccountCreation: View {
             VStack {
                 
                 ZStack {
-                    if loginData.image != nil {
-                        loginData.image?
+                    if loginVM.image != nil {
+                        loginVM.image?
                             .resizable()
                             .scaledToFill()
 //                            .renderingMode(.original)
@@ -43,13 +43,11 @@ struct AccountCreation: View {
                     }
                 }
                 .onTapGesture {
-                    loginData.showingImagePicker = true
+                    loginVM.showingImagePicker = true
                 }
 
                 
-//                TextField("Name", text: $loginData.name)
-                TextField("Name", text: $loginData.user.name)
-
+                TextField("Name", text: $loginVM.name)
                     .keyboardType(.default)
                     .padding()
                     .background(Color("TextField_Color"))
@@ -58,7 +56,7 @@ struct AccountCreation: View {
                 
                 
                 Button(action: {
-                    loginData.CreateUser()
+                    loginVM.CreateUser()
                 }) {
                     Text("Create an account")
                         .frame(width: UIScreen.main.bounds.width - 30,height: 50)
@@ -69,16 +67,16 @@ struct AccountCreation: View {
                 
             }
             
-            .sheet(isPresented: $loginData.showingImagePicker, onDismiss: loadImage) {
-                ImagePicker(image: $loginData.inputImage)
+            .sheet(isPresented: $loginVM.showingImagePicker, onDismiss: loadImage) {
+                ImagePicker(image: $loginVM.inputImage)
                 
             }
             
-            if loginData.error{
-                AlertView(msg: loginData.errorMsg, show: $loginData.error)
+            if loginVM.error{
+                AlertView(msg: loginVM.errorMsg, show: $loginVM.error)
             }
             
-            if loginData.loading {
+            if loginVM.loading {
                 IndicatorView()
             }
             
@@ -87,16 +85,16 @@ struct AccountCreation: View {
     }
     
     func loadImage() {
-        guard let inputImage = loginData.inputImage else { return }
-        loginData.image = Image(uiImage: inputImage)
+        guard let inputImage = loginVM.inputImage else { return }
+        loginVM.image = Image(uiImage: inputImage)
     }
     
 }
 
 struct AccountCreation_Previews: PreviewProvider {
     static var previews: some View {
-        AccountCreation(loginData: .init())
-        AccountCreation(loginData: .init())
+        AccountCreation(loginVM: .init())
+        AccountCreation(loginVM: .init())
             .colorScheme(.dark)
     }
 }
