@@ -12,6 +12,9 @@ struct AccountCreation: View {
     @ObservedObject var loginVM : LoginViewModel
     @Environment(\.colorScheme) var colorScheme
     
+    @State var showingImagePicker: Bool = false
+    @State var image: Image?
+    
     var body: some View {
         
         ZStack (alignment: .topLeading) {
@@ -22,8 +25,8 @@ struct AccountCreation: View {
             VStack {
                 
                 ZStack {
-                    if loginVM.image != nil {
-                        loginVM.image?
+                    if image != nil {
+                        image?
                             .resizable()
                             .scaledToFill()
 //                            .renderingMode(.original)
@@ -43,7 +46,7 @@ struct AccountCreation: View {
                     }
                 }
                 .onTapGesture {
-                    loginVM.showingImagePicker = true
+                    showingImagePicker = true
                 }
 
                 
@@ -67,7 +70,7 @@ struct AccountCreation: View {
                 
             }
             
-            .sheet(isPresented: $loginVM.showingImagePicker, onDismiss: loadImage) {
+            .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: $loginVM.inputImage)
                 
             }
@@ -86,7 +89,7 @@ struct AccountCreation: View {
     
     func loadImage() {
         guard let inputImage = loginVM.inputImage else { return }
-        loginVM.image = Image(uiImage: inputImage)
+        image = Image(uiImage: inputImage)
     }
     
 }

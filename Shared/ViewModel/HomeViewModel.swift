@@ -12,17 +12,15 @@ import FirebaseStorage
 
 class HomeViewModel: ObservableObject {
     
-    @Published var name = ""
-    @Published var mobileNumber = ""
-    @Published var imageUrl = ""
+    @Published var user: User?
     
     init() {
+        
         LoginViewModel().checkUser { [self] (exists, name, mobileNumber, imageUrl) in
-//        self.checkUser { [self] (exists, name, mobileNumber, imageUrl) in
              if exists {
-                self.name = name
-                self.mobileNumber = mobileNumber
-                self.imageUrl = imageUrl
+                self.user?.name = name
+                self.user?.imageUrl = imageUrl
+                self.user?.mobileNumber = mobileNumber
              }
         }
     }

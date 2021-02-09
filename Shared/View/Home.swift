@@ -18,12 +18,7 @@ struct Home: View {
         
         VStack(spacing: 15){
             
-            Text(homeVM.name)
-                .foregroundColor(.black)
-            Text(homeVM.mobileNumber)
-                .foregroundColor(.black)
-            Text(homeVM.imageUrl)
-                .foregroundColor(.black)
+            
             
             // Home View....
             Text("Logged In Successfully")

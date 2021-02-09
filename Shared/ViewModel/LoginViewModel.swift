@@ -12,10 +12,6 @@ import FirebaseStorage
 
 class LoginViewModel: ObservableObject {
 
-//    @AppStorage("user") var user: Data = Data()
-
-//    @Published var user: User = .init(name: "", mobileNumber: "", imageUrl: "")
-
     @Published var name = ""
     @Published var mobileNumber = ""
     @Published var imageUrl = ""
@@ -28,11 +24,8 @@ class LoginViewModel: ObservableObject {
     @Published var loading = false
     @Published var gotoVerify = false
     @Published var accountCreation = false
-
-    @Published var showingImagePicker: Bool = false
-    @Published var image: Image?
+    
     @Published var inputImage: UIImage?
-    @Published var imagedata : Data = .init(count: 0)
 
     // User Logged Status
     @AppStorage("log_Status") var status = false
