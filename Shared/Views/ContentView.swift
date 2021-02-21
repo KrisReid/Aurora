@@ -15,7 +15,7 @@ struct ContentView: View {
         
         ZStack{
             if status{
-                Chats()
+                ChatsView()
             }
             else {
                 NavigationView{

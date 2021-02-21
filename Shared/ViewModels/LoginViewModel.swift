@@ -109,7 +109,7 @@ class LoginViewModel: ObservableObject {
 
             for i in snap!.documents{
                 if i.documentID == Auth.auth().currentUser?.uid {
-                    completion(true,i.get("name") as! String,i.get("mobileNumber") as! String,i.get("image") as! String,i.get("isCurrentUser") as! Bool, i.get("groups") as! [String])
+                    completion(true,i.get("name") as! String,i.get("mobileNumber") as! String,i.get("imageUrl") as! String,i.get("isCurrentUser") as! Bool, i.get("groups") as! [String])
                     return
                 }
             }
@@ -127,28 +127,29 @@ class LoginViewModel: ObservableObject {
 
             let db = Firestore.firestore().collection("users")
             let storage = Storage.storage().reference().child("users")
-            let uid = Auth.auth().currentUser?.uid
+            let uid = Auth.auth().currentUser?.uid ?? ""
 
             if let uploadData = self.inputImage!.jpegData(compressionQuality: 0.75) {
 
-                storage.child("\(uid ?? "").jpeg").putData(uploadData, metadata: nil) { (meta, error) in
+                storage.child("\(uid).jpeg").putData(uploadData, metadata: nil) { (meta, error) in
                     if let error = error {
                         self.errorMsg = error.localizedDescription
                         withAnimation{ self.error.toggle()}
                         self.loading = false
                     } else {
-                        storage.child("\(uid ?? "").jpeg").downloadURL { (url, error) in
+                        storage.child("\(uid).jpeg").downloadURL { (url, error) in
                             if let url = url, error == nil {
                                 let userProfileImage = url.absoluteString
 
 
                                 let user: [String:Any] = [
+                                    "id" : uid,
                                     "name" : self.name,
                                     "mobileNumber" : "+\(self.getCountryCode())\(self.mobileNumber)",
                                     "imageUrl" : userProfileImage
                                 ]
 
-                                db.document(uid!).setData(user) { err in
+                                db.document(uid).setData(user) { err in
                                     self.loading = false
                                     if err != nil {
                                         self.errorMsg = err?.localizedDescription ?? "Error"

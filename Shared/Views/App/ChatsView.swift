@@ -1,5 +1,5 @@
 //
-//  Chats.swift
+//  ChatsView.swift
 //  Aurora
 //
 //  Created by Kris Reid on 15/02/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Chats: View {
+struct ChatsView: View {
     
     @ObservedObject var chatVM = ChatsViewModel()
     @State private var showModal: Bool = false
@@ -23,15 +23,11 @@ struct Chats: View {
                         GridItem(.adaptive(minimum: proxy.size.width / 2 - 20, maximum: 600), spacing: 10),
                     ], spacing: 10) {
                         
-//                        ForEach(0..<10, id: \.self) {urlString in
-//                        ForEach(chatVM.user, id: \.self) { a in
                         ForEach(chatVM.groups, id: \.self) { group in
                             
                             Text(group.id)
                             Text(group.createdBy)
-//                            Text(group.createdOn)
-
-                            
+   
                             Spacer()
                                 .frame(height: 180)
                                 .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
@@ -43,7 +39,7 @@ struct Chats: View {
                 }
             }
             .navigationTitle("Chats")
-            .navigationBarItems(trailing: Button(action: showAddUserView) {
+            .navigationBarItems(trailing: Button(action: showCreateChatView) {
                 Image(systemName: "plus")
                     .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
                     .frame(width: 20, height: 20)
@@ -52,18 +48,18 @@ struct Chats: View {
             
         }
         .sheet(isPresented: $showModal) {
-            Home(isPresented: self.$showModal)
+            CreateChatView(isPresented: self.$showModal)
         }
     }
     
-    private func showAddUserView() {
+    private func showCreateChatView() {
         self.showModal = true
     }
     
 }
 
-struct Chats_Previews: PreviewProvider {
+struct ChatsView_Previews: PreviewProvider {
     static var previews: some View {
-        Chats()
+        ChatsView()
     }
 }

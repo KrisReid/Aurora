@@ -12,13 +12,15 @@ import FirebaseFirestoreSwift
 
 struct User: Codable, Hashable {
     
+    var id: String
     var name: String
     var mobileNumber: String
     var imageUrl: String
     var isCurrentUser: Bool
     var groups: [String]
 
-    init(name: String, mobileNumber: String, imageUrl: String, isCurrentUser: Bool, groups: [String]) {
+    init(id: String, name: String, mobileNumber: String, imageUrl: String, isCurrentUser: Bool, groups: [String]) {
+        self.id = id
         self.name = name
         self.mobileNumber = mobileNumber
         self.imageUrl = imageUrl
