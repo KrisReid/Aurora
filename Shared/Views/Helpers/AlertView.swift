@@ -29,13 +29,13 @@ struct AlertView: View {
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 100)
                     .background(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
-                    .cornerRadius(15)
+                    .cornerRadius(10)
             })
             .frame(alignment: .center)
         })
         .padding()
         .background(Color.white)
-        .cornerRadius(15)
+        .cornerRadius(10)
         .padding(.horizontal,25)
         
         // background dim...

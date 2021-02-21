@@ -16,11 +16,9 @@ class HomeViewModel: ObservableObject {
     
     init() {
         
-        LoginViewModel().checkUser { [self] (exists, name, mobileNumber, imageUrl) in
+        LoginViewModel().checkUser { [self] (exists, name, mobileNumber, imageUrl, isCurrentUser, groups) in
              if exists {
-                self.user?.name = name
-                self.user?.imageUrl = imageUrl
-                self.user?.mobileNumber = mobileNumber
+                self.user = User(name: name, mobileNumber: mobileNumber, imageUrl: imageUrl, isCurrentUser: isCurrentUser, groups: groups)
              }
         }
     }
