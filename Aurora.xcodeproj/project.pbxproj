@@ -50,6 +50,8 @@
 		02AF34AA25E2662B0031F416 /* CreateChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34A825E2662B0031F416 /* CreateChatView.swift */; };
 		02AF34AE25E26BA20031F416 /* CreateChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */; };
 		02AF34AF25E26BA20031F416 /* CreateChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */; };
+		02AF34BB25E3ECBB0031F416 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34BA25E3ECBB0031F416 /* ChatView.swift */; };
+		02AF34BC25E3ECBB0031F416 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34BA25E3ECBB0031F416 /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,7 @@
 		02AF348C25DAE8340031F416 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		02AF34A825E2662B0031F416 /* CreateChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatView.swift; sourceTree = "<group>"; };
 		02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatViewModel.swift; sourceTree = "<group>"; };
+		02AF34BA25E3ECBB0031F416 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +219,7 @@
 			children = (
 				02AF348525DADAB80031F416 /* ChatsView.swift */,
 				02AF34A825E2662B0031F416 /* CreateChatView.swift */,
+				02AF34BA25E3ECBB0031F416 /* ChatView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -338,6 +342,7 @@
 				0218AF4925C534F7006D2E49 /* ImagePicker.swift in Sources */,
 				0218AF6725C58A72006D2E49 /* Indicator.swift in Sources */,
 				0258A8EB25C1F2FA00DD7FD6 /* Verification.swift in Sources */,
+				02AF34BB25E3ECBB0031F416 /* ChatView.swift in Sources */,
 				0218AF3E25C52EE9006D2E49 /* AccountCreation.swift in Sources */,
 				0258A88B25C02CCB00DD7FD6 /* ContentView.swift in Sources */,
 				0258A8E425C18C2100DD7FD6 /* AlertView.swift in Sources */,
@@ -360,6 +365,7 @@
 				0218AF4A25C534F7006D2E49 /* ImagePicker.swift in Sources */,
 				0218AF6825C58A72006D2E49 /* Indicator.swift in Sources */,
 				0258A8EC25C1F2FA00DD7FD6 /* Verification.swift in Sources */,
+				02AF34BC25E3ECBB0031F416 /* ChatView.swift in Sources */,
 				0218AF3F25C52EE9006D2E49 /* AccountCreation.swift in Sources */,
 				0258A88C25C02CCB00DD7FD6 /* ContentView.swift in Sources */,
 				0258A8E525C18C2100DD7FD6 /* AlertView.swift in Sources */,

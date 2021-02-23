@@ -10,7 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 
-struct User: Codable, Hashable {
+struct User: Identifiable, Codable, Hashable {
     
     var id: String
     var name: String
@@ -32,7 +32,13 @@ struct User: Codable, Hashable {
 
 struct Group: Codable, Hashable {
     var id: String
-    var createdOn: Timestamp
+//    var createdOn: Timestamp
     var createdBy: String
     var members: [String]
+    var createdOn: Date
+    var dateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, dd 'of' MMMM"
+        return formatter.string(from: createdOn)
+    }
 }

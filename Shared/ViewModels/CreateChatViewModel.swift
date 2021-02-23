@@ -25,8 +25,6 @@ class CreateChatViewModel: ObservableObject {
         let uid = Auth.auth().currentUser?.uid ?? ""
 
         Firestore.firestore().collection("users").whereField("id", isNotEqualTo: uid).addSnapshotListener { (documentSnapshot, error) in
- 
-//        Firestore.firestore().collection("users").addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else { return }
             self.users = documents.compactMap { (queryDocumentSnapshot) -> User? in
                 return try? queryDocumentSnapshot.data(as: User.self)
