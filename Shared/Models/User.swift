@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
-import FirebaseFirestoreSwift
-
+//import FirebaseFirestore
+//import FirebaseFirestoreSwift
 
 struct User: Identifiable, Codable, Hashable {
     
