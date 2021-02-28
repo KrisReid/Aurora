@@ -18,7 +18,6 @@ struct ChatsCellView: View {
         VStack {
             HStack {
                 WebImage(url: URL(string: user.imageUrl))
-//                Image("Sandra")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 80, height: 80)

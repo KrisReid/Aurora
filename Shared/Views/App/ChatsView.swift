@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-
 import FirebaseFirestoreSwift
 
 struct ChatsView: View {
     
-    @ObservedObject var chatVM = ChatsViewModel()
+    @ObservedObject var vm = ChatsViewModel()
     @State private var showModal: Bool = false
     
     var body: some View {
@@ -26,20 +25,25 @@ struct ChatsView: View {
                     .offset(y: 400)
                 
                 VStack {
-                    ChatsCellView(user: chatVM.currentUser, backgroundColour: Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                    ChatsCellView(user: vm.currentUser, backgroundColour: Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
                         .padding(.top, 20)
                         .padding(.bottom, 20)
                     
                     ScrollView {
                         VStack {
-                            ForEach(chatVM.groupUsers, id: \.self) { user in
-                                ChatsCellView(user: user, backgroundColour: Color(#colorLiteral(red: 0.7222563624, green: 0.8590399623, blue: 0.8006685376, alpha: 1)))
+                            ForEach(vm.groupUsers, id: \.self) { user in
+                                NavigationLink (
+                                    destination: ChatView(user: user),
+                                    label: {
+                                        ChatsCellView(user: user, backgroundColour: Color(#colorLiteral(red: 0.7222563624, green: 0.8590399623, blue: 0.8006685376, alpha: 1)))
+                                            .foregroundColor(Color(.label))
+                                    }
+                                )
                             }
                             .padding(.top, 15)
-//                            .padding(.bottom, 500)
                         }
                         .frame(width: UIScreen.main.bounds.width)
-                        .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                        .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                         .cornerRadius(16)
                         .padding(.top, 30)
                     }
@@ -61,7 +65,6 @@ struct ChatsView: View {
     private func showCreateChatView() {
         self.showModal = true
     }
-    
 }
 
 

@@ -6,14 +6,62 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct ChatView: View {
     
     let user: User
+//    let chatId: String
+    
+    @State var typingMessage: String = ""
+    @ObservedObject private var keyboard = KeyboardResponder()
+    
+    @ObservedObject var vm = ChatViewModel()
     
     var body: some View {
-        Text(user.name)
+        NavigationView {
+            VStack {
+                
+                ScrollView {
+                    ForEach(vm.messages, id: \.self) { message in
+                        MessageView(currentMessage: message)
+                    }
+                }
+                .padding(.horizontal)
+                                
+                Spacer()
+                
+                HStack {
+                    TextField("Message...", text: $typingMessage)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(minHeight: CGFloat(30))
+                    Button(action: sendMessage) {
+                        Text("Send")
+                    }
+                    .disabled(typingMessage == "" ? true : false)
+                }
+                .frame(minHeight: CGFloat(50)).padding()
+            }
+            .navigationBarTitle(Text("Change"), displayMode: .inline)
+            .padding(.bottom, keyboard.currentHeight)
+            .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
+        }
+        .onTapGesture {
+            self.endEditing(true)
+        }
     }
+    
+    
+    
+    func sendMessage() {
+        let user = User(id: "987662", name: "Kris", mobileNumber: "0743256643", imageUrl: "2222", isCurrentUser: true, groups: [])
+        let message = Message(id: "123", content: typingMessage, user: user, timeDate: Timestamp(date: Date()))
+        
+        vm.postMessage(message: message)
+        typingMessage = ""
+    }
+    
 }
 
 struct ChatView_Previews: PreviewProvider {
