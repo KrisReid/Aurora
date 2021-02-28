@@ -34,10 +34,6 @@ struct CreateChatView: View {
                 
                 NavigationView {
                     List(vm.users) { user in
-//                    List(users) { user in
-//                        NavigationLink(destination: ChatView(user: user), label: {
-//                            UserCellView(user: user)
-//                        })
                         Button(action: {
                             self.isPresented.toggle()
                         }, label: {
