@@ -254,10 +254,10 @@
 				02AF348525DADAB80031F416 /* ChatsView.swift */,
 				0295DE0825EB9A470046E389 /* UserView.swift */,
 				02AF34CB25E82F0E0031F416 /* ChatsCellView.swift */,
-				02AF34A825E2662B0031F416 /* CreateChatView.swift */,
 				02AF34BA25E3ECBB0031F416 /* ChatView.swift */,
 				0295DDE625EAFBC90046E389 /* MessageView.swift */,
 				0295DDEB25EAFC0D0046E389 /* ContentMessageView.swift */,
+				02AF34A825E2662B0031F416 /* CreateChatView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";

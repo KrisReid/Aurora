@@ -33,30 +33,18 @@ struct ChatsView: View {
                     ScrollView {
                         VStack {
                             
-                            ForEach(vm.groupUsers, id: \.self) { user in
+                            ForEach(vm.groupUsers, id: \.self) { chat in
                                 NavigationLink (
-                                    destination: ChatView(user: user),
+                                    destination: ChatView(chat: chat),
                                     label: {
-                                        ChatsCellView(user: user)
+                                        ChatsCellView(chat: chat)
                                             .foregroundColor(Color(.label))
                                     }
                                 )
                             }
                             .padding(.top, 15)
-                            
-                            
-//                            ForEach(vm.groupUsers, id: \.self) { user in
-//                                NavigationLink (
-//                                    destination: ChatView(user: user),
-//                                    label: {
-//                                        ChatsCellView(user: user, backgroundColour: Color(#colorLiteral(red: 0.7222563624, green: 0.8590399623, blue: 0.8006685376, alpha: 1)))
-//                                            .foregroundColor(Color(.label))
-//                                    }
-//                                )
-//                            }
-//                            .padding(.top, 15)
                         }
-                        .frame(width: UIScreen.main.bounds.width)
+                        .frame(minWidth: UIScreen.main.bounds.width, idealWidth: UIScreen.main.bounds.width, maxWidth: .infinity, minHeight: 400, idealHeight: 400, maxHeight: .infinity, alignment: .top)
                         .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                         .cornerRadius(16)
                         .padding(.top, 30)

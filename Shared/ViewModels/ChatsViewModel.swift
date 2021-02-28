@@ -15,7 +15,6 @@ import FirebaseFirestoreSwift
 class ChatsViewModel: ObservableObject {
     
     @Published var groups = [Group]()
-//    @Published var groupUsers = [User]()
     @Published var groupUsers = [Chat]()
     @Published var currentUser = User(id: "", name: "", mobileNumber: "", imageUrl: "", isCurrentUser: true, groups: [])
     
@@ -28,7 +27,6 @@ class ChatsViewModel: ObservableObject {
     
     func fetchCurrentUser() {
         let uid = Auth.auth().currentUser?.uid ?? ""
-        
         Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else { return }
             try? self.currentUser = document.data(as: User.self) ?? User(id: "", name: "", mobileNumber: "", imageUrl: "", isCurrentUser: false, groups: [])
@@ -50,7 +48,7 @@ class ChatsViewModel: ObservableObject {
                 let createdOn = (data["createdOn"] as? Timestamp)?.dateValue() ?? Date()
 
                 //get users which aren't me and where the group is within the group array
-                self.fetchUserGroups(uid: uid, id: id)
+                self.fetchGroupUser(uid: uid, id: id)
 
                 return Group(id: id, createdBy: createdBy, members: members, createdOn: createdOn)
             }
@@ -59,14 +57,11 @@ class ChatsViewModel: ObservableObject {
     }
     
     
-    private func fetchUserGroups(uid: String, id: String) {
+    private func fetchGroupUser(uid: String, id: String) {
         Firestore.firestore().collection("users").whereField("groups", isEqualTo: [id]).whereField("id", isNotEqualTo: uid).getDocuments { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { return }
-//            self.groupUsers.append(contentsOf: documents.compactMap({ (queryDocumentSnapshot) -> User? in
-//                return try? queryDocumentSnapshot.data(as: User.self)
-//            }))
             
-            self.groupUsers = documents.map { (queryDocumentSnapshot) -> Chat in
+            self.groupUsers.append(contentsOf: documents.map({ (queryDocumentSnapshot) -> Chat in
                 let data = queryDocumentSnapshot.data()
                 let userId = data["id"] as? String ?? ""
                 let userName = data["name"] as? String ?? ""
@@ -75,8 +70,7 @@ class ChatsViewModel: ObservableObject {
                 let UserisCurrentUser = data["isCurrentUser"] as? Bool ?? true
                 
                 return Chat(userId: userId, userName: userName, userMobileNumber: userMobileNumber, userImageUrl: userImageUrl, UserisCurrentUser: UserisCurrentUser, groupId: id)
-            }
-            
+            }))
         }
     }
     
