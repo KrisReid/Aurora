@@ -12,21 +12,26 @@ import FirebaseFirestoreSwift
 struct MessageView : View {
     
     var currentMessage: Message
+    var user: User
+    var isCurrentUser: Bool
     
     var body: some View {
         
         HStack(alignment: .bottom, spacing: 15) {
-            if !currentMessage.user.isCurrentUser {
-                Image(currentMessage.user.imageUrl)
-                .resizable()
-                .frame(width: 40, height: 40, alignment: .center)
-                .cornerRadius(20)
+            
+            if !isCurrentUser {
+                Image("Sandra")
+//                Image(currentMessage.userImageUrl)
+                    .resizable()
+                    .frame(width: 40, height: 40, alignment: .center)
+                    .cornerRadius(20)
             } else {
                 Spacer()
             }
-            ContentMessageView(contentMessage: currentMessage.content, isCurrentUser: currentMessage.user.isCurrentUser)
             
-            if !currentMessage.user.isCurrentUser {
+            ContentMessageView(contentMessage: currentMessage.content, isCurrentUser: isCurrentUser)
+            
+            if !isCurrentUser {
                 Spacer()
             }
             
@@ -37,7 +42,8 @@ struct MessageView : View {
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
         
-        MessageView(currentMessage: Message(id: "1234", content: " SwiftUI 😍", user: User(id: "Hey", name: "Kris", mobileNumber: "07432426798", imageUrl: "aaa", isCurrentUser: true, groups: []), timeDate: Timestamp(date: Date())))
+        MessageView(currentMessage: Message(id: "999999", content: "Hello 😍", userId: "12345", timeDate: Timestamp(date: Date())), user: User(id: "54321", name: "Alison Bell", mobileNumber: "07515576273", imageUrl: "Sandra", isCurrentUser: false, groups: ["99999"]), isCurrentUser: false)
+        
     }
     
 }

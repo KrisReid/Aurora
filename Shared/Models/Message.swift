@@ -14,7 +14,8 @@ struct Message : Identifiable, Codable, Hashable {
 //    @DocumentID var id: String? = UUID().uuidString
     var id: String
     var content: String
-    var user: User
+    var userId: String
+//    var user: User
 //    var timeDate: Date
     var timeDate: Timestamp
 }

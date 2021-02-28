@@ -12,24 +12,31 @@ import FirebaseFirestoreSwift
 struct ChatView: View {
     
     let chat: Chat
+    let user: User
 
     @State var typingMessage: String = ""
     @ObservedObject private var keyboard = KeyboardResponder()
     @ObservedObject var vm = ChatViewModel()
     
     var body: some View {
+
+        
         NavigationView {
             VStack {
-                
                 ScrollView {
                     ForEach(vm.messages, id: \.self) { message in
-                        MessageView(currentMessage: message)
+
+                        if message.userId == user.id {
+                            MessageView(currentMessage: message, user: user, isCurrentUser: true)
+                        } else {
+                            MessageView(currentMessage: message, user: user, isCurrentUser: false)
+                        }
                     }
                 }
                 .padding(.horizontal)
-                                
+
                 Spacer()
-                
+
                 HStack {
                     TextField("Message...", text: $typingMessage)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -41,22 +48,20 @@ struct ChatView: View {
                 }
                 .frame(minHeight: CGFloat(50)).padding()
             }
-            .navigationBarTitle(Text("Change"), displayMode: .inline)
+            .navigationBarTitle(Text(chat.userName), displayMode: .inline)
             .padding(.bottom, keyboard.currentHeight)
             .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
         }
+        .onAppear(perform: {
+            vm.fetchDataTwo(groupId: chat.groupId)
+        })
         .onTapGesture {
             self.endEditing(true)
         }
     }
-    
-    
-    
+
     func sendMessage() {
-        let user = User(id: "987662", name: "Kris", mobileNumber: "0743256643", imageUrl: "2222", isCurrentUser: true, groups: [])
-        let message = Message(id: "123", content: typingMessage, user: user, timeDate: Timestamp(date: Date()))
-        
-        vm.postMessage(message: message)
+        vm.postMessage(content: typingMessage, userId: user.id)
         typingMessage = ""
     }
     
@@ -65,7 +70,7 @@ struct ChatView: View {
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         
-        ChatView(chat: Chat(userId: "12345", userName: "Kris Reid", userMobileNumber: "09876266733", userImageUrl: "Sandra", UserisCurrentUser: true, groupId: "13552"))
+        ChatView(chat: Chat(userId: "54321", userName: "Belly Buttton", userMobileNumber: "0751557728", userImageUrl: "Sandra", UserisCurrentUser: true, groupId: "99999"), user: User(id: "12346", name: "Kris Reid", mobileNumber: "07432426798", imageUrl: "Sandra", isCurrentUser: true, groups: ["99999"]), typingMessage: "Hello there 😍", vm: .init())
         
     }
 }

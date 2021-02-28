@@ -16,16 +16,13 @@ class ChatViewModel: ObservableObject {
     @Published var messages = [Message]()
     
     init() {
-        fetchData()
+//        fetchData()
     }
+
     
     
-    
-    func fetchDataTwo() {
-        
-        //"groups" --> id ---> "messages" -->
-        
-        Firestore.firestore().collection("groups").document("groupId").collection("messages").order(by: "timeDate").addSnapshotListener { documentSnapshot, error in
+    func fetchDataTwo(groupId: String) {
+        Firestore.firestore().collection("groups").document(groupId).collection("messages").order(by: "timeDate").addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else { return }
             self.messages = documents.compactMap { (queryDocumentSnapshot) -> Message? in
                 return try? queryDocumentSnapshot.data(as: Message.self)
@@ -35,7 +32,8 @@ class ChatViewModel: ObservableObject {
     
     
     func fetchData() {
-        Firestore.firestore().collection("messages").order(by: "timeDate").addSnapshotListener { documentSnapshot, error in
+        Firestore.firestore().collection("groups").document("eUMO0EvYTXwqSon9Ppze").collection("messages").order(by: "timeDate").addSnapshotListener { documentSnapshot, error in
+//        Firestore.firestore().collection("messages").order(by: "timeDate").addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else { return }
             self.messages = documents.compactMap { (queryDocumentSnapshot) -> Message? in
                 return try? queryDocumentSnapshot.data(as: Message.self)
@@ -44,14 +42,27 @@ class ChatViewModel: ObservableObject {
     }
     
     
-    func postMessage(message: Message) {
+    func postMessage(content: String, userId: String) {
+        
+        
+        
         do {
-            let _ = try Firestore.firestore().collection("messages").addDocument(from: message)
+            print(content)
+//            let _ = try Firestore.firestore().collection("messages").addDocument(from: message)
         }
         catch {
             print(error.localizedDescription)
         }
     }
+    
+//    func postMessage(message: Message) {
+//        do {
+//            let _ = try Firestore.firestore().collection("messages").addDocument(from: message)
+//        }
+//        catch {
+//            print(error.localizedDescription)
+//        }
+//    }
     
     
 }
