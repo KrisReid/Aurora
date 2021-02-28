@@ -27,9 +27,9 @@ struct ChatView: View {
                     ForEach(vm.messages, id: \.self) { message in
 
                         if message.userId == user.id {
-                            MessageView(currentMessage: message, user: user, isCurrentUser: true)
+                            MessageView(currentMessage: message, user: user, imageUrl: chat.userImageUrl, isCurrentUser: true)
                         } else {
-                            MessageView(currentMessage: message, user: user, isCurrentUser: false)
+                            MessageView(currentMessage: message, user: user, imageUrl: chat.userImageUrl, isCurrentUser: false)
                         }
                     }
                 }
@@ -53,7 +53,7 @@ struct ChatView: View {
             .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
         }
         .onAppear(perform: {
-            vm.fetchDataTwo(groupId: chat.groupId)
+            vm.fetchData(groupId: chat.groupId)
         })
         .onTapGesture {
             self.endEditing(true)
@@ -61,7 +61,7 @@ struct ChatView: View {
     }
 
     func sendMessage() {
-        vm.postMessage(content: typingMessage, userId: user.id)
+        vm.postMessage(content: typingMessage, userId: user.id, groupId: chat.groupId)
         typingMessage = ""
     }
     

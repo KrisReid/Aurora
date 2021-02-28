@@ -29,7 +29,7 @@ struct ChatsCellView: View {
                 Spacer()
             }
             .padding()
-            .background(Color(#colorLiteral(red: 0.7222563624, green: 0.8590399623, blue: 0.8006685376, alpha: 1)))
+            .background(Color("Chat_Cell_Background"))
             .cornerRadius(20)
             .frame(width: UIScreen.main.bounds.width - 40)
         }

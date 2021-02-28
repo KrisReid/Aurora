@@ -21,7 +21,7 @@ struct ChatsView: View {
                 LinearGradient(gradient: Gradient(colors: [Color("Background_Color"), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
             
-                Color.white
+                Color("Chat_Background")
                     .offset(y: 400)
                 
                 VStack {
@@ -45,7 +45,7 @@ struct ChatsView: View {
                             .padding(.top, 15)
                         }
                         .frame(minWidth: UIScreen.main.bounds.width, idealWidth: UIScreen.main.bounds.width, maxWidth: .infinity, minHeight: 400, idealHeight: 400, maxHeight: .infinity, alignment: .top)
-                        .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                        .background(Color("Chat_Background"))
                         .cornerRadius(16)
                         .padding(.top, 30)
                     }

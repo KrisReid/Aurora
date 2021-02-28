@@ -59,6 +59,7 @@ class ChatsViewModel: ObservableObject {
     
     private func fetchGroupUser(uid: String, id: String) {
         Firestore.firestore().collection("users").whereField("groups", isEqualTo: [id]).whereField("id", isNotEqualTo: uid).getDocuments { (querySnapshot, error) in
+            
             guard let documents = querySnapshot?.documents else { return }
             
             self.groupUsers.append(contentsOf: documents.map({ (queryDocumentSnapshot) -> Chat in
