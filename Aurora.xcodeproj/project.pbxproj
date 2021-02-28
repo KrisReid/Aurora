@@ -45,6 +45,10 @@
 		0295DDF725EAFC9B0046E389 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0295DDF525EAFC9B0046E389 /* KeyboardResponder.swift */; };
 		0295DDFB25EAFCB60046E389 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0295DDFA25EAFCB60046E389 /* ViewExtension.swift */; };
 		0295DDFC25EAFCB60046E389 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0295DDFA25EAFCB60046E389 /* ViewExtension.swift */; };
+		0295DE0225EB98C10046E389 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0295DE0125EB98C10046E389 /* Chat.swift */; };
+		0295DE0325EB98C10046E389 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0295DE0125EB98C10046E389 /* Chat.swift */; };
+		0295DE0925EB9A470046E389 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0295DE0825EB9A470046E389 /* UserView.swift */; };
+		0295DE0A25EB9A470046E389 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0295DE0825EB9A470046E389 /* UserView.swift */; };
 		02AF33DC25D3158A0031F416 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 02AF33DB25D3158A0031F416 /* SDWebImageSwiftUI */; };
 		02AF348625DADAB80031F416 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF348525DADAB80031F416 /* ChatsView.swift */; };
 		02AF348725DADAB80031F416 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF348525DADAB80031F416 /* ChatsView.swift */; };
@@ -93,6 +97,8 @@
 		0295DDF025EAFC440046E389 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		0295DDF525EAFC9B0046E389 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		0295DDFA25EAFCB60046E389 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		0295DE0125EB98C10046E389 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		0295DE0825EB9A470046E389 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		02AF348525DADAB80031F416 /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
 		02AF348C25DAE8340031F416 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		02AF34A825E2662B0031F416 /* CreateChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatView.swift; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 				0258A8CF25C0D85600DD7FD6 /* Countries.swift */,
 				0218AF5825C53653006D2E49 /* User.swift */,
 				0295DDF025EAFC440046E389 /* Message.swift */,
+				0295DE0125EB98C10046E389 /* Chat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				02AF348525DADAB80031F416 /* ChatsView.swift */,
+				0295DE0825EB9A470046E389 /* UserView.swift */,
 				02AF34CB25E82F0E0031F416 /* ChatsCellView.swift */,
 				02AF34A825E2662B0031F416 /* CreateChatView.swift */,
 				02AF34BA25E3ECBB0031F416 /* ChatView.swift */,
@@ -376,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0295DE0225EB98C10046E389 /* Chat.swift in Sources */,
 				0295DDEC25EAFC0D0046E389 /* ContentMessageView.swift in Sources */,
 				02AF34C425E7AEDE0031F416 /* Services.swift in Sources */,
 				02AF348D25DAE8340031F416 /* ChatsViewModel.swift in Sources */,
@@ -398,6 +407,7 @@
 				0295DDF125EAFC440046E389 /* Message.swift in Sources */,
 				0218AF5925C53653006D2E49 /* User.swift in Sources */,
 				0258A8D025C0D85600DD7FD6 /* Countries.swift in Sources */,
+				0295DE0925EB9A470046E389 /* UserView.swift in Sources */,
 				0258A8CA25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */,
 				02AF34A925E2662B0031F416 /* CreateChatView.swift in Sources */,
 			);
@@ -413,6 +423,7 @@
 				0218AF6825C58A72006D2E49 /* Indicator.swift in Sources */,
 				0258A8EC25C1F2FA00DD7FD6 /* Verification.swift in Sources */,
 				02AF34BC25E3ECBB0031F416 /* ChatView.swift in Sources */,
+				0295DE0325EB98C10046E389 /* Chat.swift in Sources */,
 				0295DDFC25EAFCB60046E389 /* ViewExtension.swift in Sources */,
 				0218AF3F25C52EE9006D2E49 /* AccountCreation.swift in Sources */,
 				0295DDE325EAFAC70046E389 /* ChatViewModel.swift in Sources */,
@@ -425,6 +436,7 @@
 				0295DDE825EAFBC90046E389 /* MessageView.swift in Sources */,
 				0258A88A25C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
 				0218AF5A25C53653006D2E49 /* User.swift in Sources */,
+				0295DE0A25EB9A470046E389 /* UserView.swift in Sources */,
 				0258A8D125C0D85600DD7FD6 /* Countries.swift in Sources */,
 				0295DDF225EAFC440046E389 /* Message.swift in Sources */,
 				0258A8CB25C0D6E600DD7FD6 /* LoginViewModel.swift in Sources */,

@@ -11,8 +11,9 @@ import FirebaseFirestoreSwift
 
 struct ChatView: View {
     
-    let user: User
-//    let chatId: String
+//    let user: User
+    let user: Chat
+
     
     @State var typingMessage: String = ""
     @ObservedObject private var keyboard = KeyboardResponder()
@@ -66,6 +67,9 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView(user: User(id: "12345", name: "Sandra Belle", mobileNumber: "07432426798", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]))
+        
+        ChatView(user: Chat(userId: "12345", userName: "Kris Reid", userMobileNumber: "09876266733", userImageUrl: "Sandra", UserisCurrentUser: true, groupId: "13552"))
+        
+//        ChatView(user: User(id: "12345", name: "Sandra Belle", mobileNumber: "07432426798", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]))
     }
 }

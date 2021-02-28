@@ -25,22 +25,36 @@ struct ChatsView: View {
                     .offset(y: 400)
                 
                 VStack {
-                    ChatsCellView(user: vm.currentUser, backgroundColour: Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                    
+                    UserView(user: vm.currentUser)
                         .padding(.top, 20)
                         .padding(.bottom, 20)
                     
                     ScrollView {
                         VStack {
+                            
                             ForEach(vm.groupUsers, id: \.self) { user in
                                 NavigationLink (
                                     destination: ChatView(user: user),
                                     label: {
-                                        ChatsCellView(user: user, backgroundColour: Color(#colorLiteral(red: 0.7222563624, green: 0.8590399623, blue: 0.8006685376, alpha: 1)))
+                                        ChatsCellView(user: user)
                                             .foregroundColor(Color(.label))
                                     }
                                 )
                             }
                             .padding(.top, 15)
+                            
+                            
+//                            ForEach(vm.groupUsers, id: \.self) { user in
+//                                NavigationLink (
+//                                    destination: ChatView(user: user),
+//                                    label: {
+//                                        ChatsCellView(user: user, backgroundColour: Color(#colorLiteral(red: 0.7222563624, green: 0.8590399623, blue: 0.8006685376, alpha: 1)))
+//                                            .foregroundColor(Color(.label))
+//                                    }
+//                                )
+//                            }
+//                            .padding(.top, 15)
                         }
                         .frame(width: UIScreen.main.bounds.width)
                         .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
@@ -65,6 +79,7 @@ struct ChatsView: View {
     private func showCreateChatView() {
         self.showModal = true
     }
+    
 }
 
 

@@ -15,7 +15,8 @@ import FirebaseFirestoreSwift
 class ChatsViewModel: ObservableObject {
     
     @Published var groups = [Group]()
-    @Published var groupUsers = [User]()
+//    @Published var groupUsers = [User]()
+    @Published var groupUsers = [Chat]()
     @Published var currentUser = User(id: "", name: "", mobileNumber: "", imageUrl: "", isCurrentUser: true, groups: [])
     
     
@@ -61,9 +62,23 @@ class ChatsViewModel: ObservableObject {
     private func fetchUserGroups(uid: String, id: String) {
         Firestore.firestore().collection("users").whereField("groups", isEqualTo: [id]).whereField("id", isNotEqualTo: uid).getDocuments { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { return }
-            self.groupUsers.append(contentsOf: documents.compactMap({ (queryDocumentSnapshot) -> User? in
-                return try? queryDocumentSnapshot.data(as: User.self)
-            }))
+//            self.groupUsers.append(contentsOf: documents.compactMap({ (queryDocumentSnapshot) -> User? in
+//                return try? queryDocumentSnapshot.data(as: User.self)
+//            }))
+            
+            self.groupUsers = documents.map { (queryDocumentSnapshot) -> Chat in
+                let data = queryDocumentSnapshot.data()
+                let userId = data["id"] as? String ?? ""
+                let userName = data["name"] as? String ?? ""
+                let userMobileNumber = data["mobileNumber"] as? String ?? ""
+                let userImageUrl = data["imageUrl"] as? String ?? ""
+                let UserisCurrentUser = data["isCurrentUser"] as? Bool ?? true
+                
+                return Chat(userId: userId, userName: userName, userMobileNumber: userMobileNumber, userImageUrl: userImageUrl, UserisCurrentUser: UserisCurrentUser, groupId: id)
+            }
+            
         }
     }
+    
 }
+
