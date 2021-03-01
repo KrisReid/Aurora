@@ -19,7 +19,7 @@ class ChatViewModel: ObservableObject {
 
     }
 
-    func fetchData(groupId: String) {
+    func fetchGroupMessages(groupId: String) {
         Firestore.firestore().collection("groups").document(groupId).collection("messages").order(by: "timeDate").addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else { return }
             self.messages = documents.compactMap { (queryDocumentSnapshot) -> Message? in
@@ -27,8 +27,6 @@ class ChatViewModel: ObservableObject {
             }
         }
     }
-
-    
     
     
     func postMessage(content: String, userId: String, groupId: String) {

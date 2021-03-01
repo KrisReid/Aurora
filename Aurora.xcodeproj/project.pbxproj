@@ -211,8 +211,8 @@
 			children = (
 				0258A8C925C0D6E600DD7FD6 /* LoginViewModel.swift */,
 				02AF348C25DAE8340031F416 /* ChatsViewModel.swift */,
-				02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */,
 				0295DDE125EAFAC70046E389 /* ChatViewModel.swift */,
+				02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

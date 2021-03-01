@@ -13,13 +13,13 @@ struct ChatView: View {
     
     let chat: Chat
     let user: User
-
+    
     @State var typingMessage: String = ""
+
     @ObservedObject private var keyboard = KeyboardResponder()
     @ObservedObject var vm = ChatViewModel()
     
     var body: some View {
-
         
         NavigationView {
             VStack {
@@ -53,7 +53,7 @@ struct ChatView: View {
             .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
         }
         .onAppear(perform: {
-            vm.fetchData(groupId: chat.groupId)
+            vm.fetchGroupMessages(groupId: chat.groupId)
         })
         .onTapGesture {
             self.endEditing(true)
@@ -69,8 +69,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        ChatView(chat: Chat(userId: "54321", userName: "Belly Buttton", userMobileNumber: "0751557728", userImageUrl: "Sandra", UserisCurrentUser: true, groupId: "99999"), user: User(id: "12346", name: "Kris Reid", mobileNumber: "07432426798", imageUrl: "Sandra", isCurrentUser: true, groups: ["99999"]), typingMessage: "Hello there 😍", vm: .init())
-        
+        ChatView(chat: Chat(userId: "54321", userName: "Belly Buttton", userMobileNumber: "0751557728", userImageUrl: "Sandra", groupId: "99999"), user: User(id: "12346", name: "Kris Reid", mobileNumber: "07432426798", imageUrl: "Sandra", groups: ["99999"]), typingMessage: "Hello there 😍", vm: .init())
     }
 }

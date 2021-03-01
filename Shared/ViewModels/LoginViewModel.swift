@@ -15,7 +15,7 @@ class LoginViewModel: ObservableObject {
     @Published var name = ""
     @Published var mobileNumber = ""
     @Published var imageUrl = ""
-    @Published var isCurrentUser = false
+
 
     @Published var code = ""
     @Published var CODE = ""
@@ -77,14 +77,14 @@ class LoginViewModel: ObservableObject {
                 withAnimation{ self.error.toggle()}
                 return
             }
+            
 
-            self.checkUser { [self] (exists, name, mobileNumber, imageUrl, isCurrentUser, groupIDs) in
+            self.checkUser { [self] (exists, name, mobileNumber, imageUrl, groups) in
                  if exists {
 
                     self.name = name
                     self.mobileNumber = mobileNumber
                     self.imageUrl = imageUrl
-                    self.isCurrentUser = isCurrentUser
 
                     self.loading = false
                     withAnimation{self.status = true}
@@ -99,7 +99,7 @@ class LoginViewModel: ObservableObject {
     }
 
 
-    func checkUser(completion: @escaping (_ exists: Bool, _ name: String, _ mobileNumber: String, _ image: String, _ isCurrentUser: Bool, _ groupsIDs: [String]) -> Void){
+    func checkUser(completion: @escaping (_ exists: Bool, _ name: String, _ mobileNumber: String, _ image: String, _ groups: [String]) -> Void){
 
         Firestore.firestore().collection("users").getDocuments { (snap, err) in
             if err != nil{
@@ -109,11 +109,11 @@ class LoginViewModel: ObservableObject {
 
             for i in snap!.documents{
                 if i.documentID == Auth.auth().currentUser?.uid {
-                    completion(true,i.get("name") as! String,i.get("mobileNumber") as! String,i.get("imageUrl") as! String,i.get("isCurrentUser") as! Bool, i.get("groups") as! [String])
+                    completion(true,i.get("name") as! String,i.get("mobileNumber") as! String,i.get("imageUrl") as! String, i.get("groups") as! [String])
                     return
                 }
             }
-            completion(false,"","","", true,[])
+            completion(false,"","","",[])
         }
     }
 
@@ -140,13 +140,13 @@ class LoginViewModel: ObservableObject {
                         storage.child("\(uid).jpeg").downloadURL { (url, error) in
                             if let url = url, error == nil {
                                 let userProfileImage = url.absoluteString
-
-
+                                
                                 let user: [String:Any] = [
                                     "id" : uid,
                                     "name" : self.name,
                                     "mobileNumber" : "+\(self.getCountryCode())\(self.mobileNumber)",
-                                    "imageUrl" : userProfileImage
+                                    "imageUrl" : userProfileImage,
+                                    "groups" : []
                                 ]
 
                                 db.document(uid).setData(user) { err in

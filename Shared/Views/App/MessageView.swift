@@ -45,7 +45,7 @@ struct MessageView : View {
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
         
-        MessageView(currentMessage: Message(id: "999999", content: "Hello 😍", userId: "12345", timeDate: Timestamp(date: Date())), user: User(id: "54321", name: "Alison Bell", mobileNumber: "07515576273", imageUrl: "Sandra", isCurrentUser: false, groups: ["99999"]), imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2Fg0rRsxswllemj0nrp3lCBNYVGrj1.jpeg?alt=media&token=cf2d8fc9-74df-4591-bc20-0be03cc69f53", isCurrentUser: false)
+        MessageView(currentMessage: Message(id: "999999", content: "Hello 😍", userId: "12345", timeDate: Timestamp(date: Date())), user: User(id: "54321", name: "Alison Bell", mobileNumber: "07515576273", imageUrl: "Sandra", groups: ["99999"]), imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2Fg0rRsxswllemj0nrp3lCBNYVGrj1.jpeg?alt=media&token=cf2d8fc9-74df-4591-bc20-0be03cc69f53", isCurrentUser: false)
         
     }
     

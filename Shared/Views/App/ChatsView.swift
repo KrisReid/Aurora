@@ -33,7 +33,7 @@ struct ChatsView: View {
                     ScrollView {
                         VStack {
                             
-                            ForEach(vm.groupUsers, id: \.self) { chat in
+                            ForEach(vm.chats, id: \.self) { chat in
                                 NavigationLink (
                                     destination: ChatView(chat: chat, user: vm.currentUser),
                                     label: {

@@ -13,16 +13,15 @@ struct CreateChatView: View {
     @Binding var isPresented: Bool
     @ObservedObject var vm = CreateChatViewModel()
     
-    let users: [User] = [
-        .init(id: "12345", name: "Sandra Belle", mobileNumber: "07432426798", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]),
-        .init(id: "22344", name: "Sandra Froome", mobileNumber: "0712345677", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]),
-        .init(id: "34567", name: "Sandra Ollay", mobileNumber: "07432426556", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"])
-    ]
+//    let users: [User] = [
+//        .init(id: "12345", name: "Sandra Belle", mobileNumber: "07432426798", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]),
+//        .init(id: "22344", name: "Sandra Froome", mobileNumber: "0712345677", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]),
+//        .init(id: "34567", name: "Sandra Ollay", mobileNumber: "07432426556", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"])
+//    ]
     
     var body: some View {
         
         ZStack {
-            
             LinearGradient(gradient: Gradient(colors: [Color("Background_Color"), Color(#colorLiteral(red: 0.2579757571, green: 0.6276962161, blue: 0.4713696837, alpha: 1))]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
@@ -45,11 +44,6 @@ struct CreateChatView: View {
                 .offset(y: 30)
             }
         }
-
-
-        
-        
-
     }
 }
 
@@ -66,7 +60,6 @@ struct UserCellView: View {
     
     var body: some View {
         HStack {
-//            Image(user.imageUrl)
             WebImage(url: URL(string: user.imageUrl))
                 .resizable()
                 .scaledToFit()
