@@ -25,9 +25,9 @@ class ChatViewModel: ObservableObject {
             self.messages = documents.compactMap { (queryDocumentSnapshot) -> Message? in
                 return try? queryDocumentSnapshot.data(as: Message.self)
             }
+
         }
     }
-    
     
     func postMessage(content: String, userId: String, groupId: String) {
         do {

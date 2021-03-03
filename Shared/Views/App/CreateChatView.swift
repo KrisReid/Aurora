@@ -13,12 +13,6 @@ struct CreateChatView: View {
     @Binding var isPresented: Bool
     @ObservedObject var vm = CreateChatViewModel()
     
-//    let users: [User] = [
-//        .init(id: "12345", name: "Sandra Belle", mobileNumber: "07432426798", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]),
-//        .init(id: "22344", name: "Sandra Froome", mobileNumber: "0712345677", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"]),
-//        .init(id: "34567", name: "Sandra Ollay", mobileNumber: "07432426556", imageUrl: "Sandra", isCurrentUser: true, groups: ["34566","22345"])
-//    ]
-    
     var body: some View {
         
         ZStack {

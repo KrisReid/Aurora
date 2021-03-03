@@ -13,7 +13,6 @@ import SDWebImageSwiftUI
 struct MessageView : View {
     
     var currentMessage: Message
-    var user: User
     var imageUrl: String
     var isCurrentUser: Bool
     
@@ -45,7 +44,7 @@ struct MessageView : View {
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
         
-        MessageView(currentMessage: Message(id: "999999", content: "Hello 😍", userId: "12345", timeDate: Timestamp(date: Date())), user: User(id: "54321", name: "Alison Bell", mobileNumber: "07515576273", imageUrl: "Sandra", groups: ["99999"]), imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2Fg0rRsxswllemj0nrp3lCBNYVGrj1.jpeg?alt=media&token=cf2d8fc9-74df-4591-bc20-0be03cc69f53", isCurrentUser: false)
+        MessageView(currentMessage: Message(id: "999999", content: "Hello 😍", userId: "1GZDkkomqobMPhpaqUirtClFHLq1", timeDate: Timestamp(date: Date())), imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2F1GZDkkomqobMPhpaqUirtClFHLq1.jpeg?alt=media&token=41fd4a78-61e2-44b7-96c0-c22a40da18f2", isCurrentUser: false)
         
     }
     

@@ -15,7 +15,6 @@ struct ChatView: View {
     let user: User
     
     @State var typingMessage: String = ""
-
     @ObservedObject private var keyboard = KeyboardResponder()
     @ObservedObject var vm = ChatViewModel()
     
@@ -24,13 +23,20 @@ struct ChatView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    ForEach(vm.messages, id: \.self) { message in
-
-                        if message.userId == user.id {
-                            MessageView(currentMessage: message, user: user, imageUrl: chat.userImageUrl, isCurrentUser: true)
-                        } else {
-                            MessageView(currentMessage: message, user: user, imageUrl: chat.userImageUrl, isCurrentUser: false)
+                    ScrollViewReader { value in
+                        
+//                        Button("Jump to last") {
+//                            value.scrollTo(vm.messages.last?.id, anchor: .bottom)
+//                        }
+                        
+                        ForEach(vm.messages, id: \.self) { message in
+                            MessageView(currentMessage: message, imageUrl: chat.userImageUrl, isCurrentUser: message.userId == user.id ? true : false)
+                                .id(message.id)
                         }
+                        .onAppear(perform: {
+//                            value.scrollTo("KhkuZDCZLRj5fWVJzR9l", anchor: .bottom)
+                            value.scrollTo(vm.messages.last?.id, anchor: .bottom)
+                        })
                     }
                 }
                 .padding(.horizontal)
@@ -69,6 +75,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView(chat: Chat(userId: "54321", userName: "Belly Buttton", userMobileNumber: "0751557728", userImageUrl: "Sandra", groupId: "99999"), user: User(id: "12346", name: "Kris Reid", mobileNumber: "07432426798", imageUrl: "Sandra", groups: ["99999"]), typingMessage: "Hello there 😍", vm: .init())
+        ChatView(chat: Chat(userId: "1GZDkkomqobMPhpaqUirtClFHLq1", userName: "Alison MB", userMobileNumber: "+447515509832", userImageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2F1GZDkkomqobMPhpaqUirtClFHLq1.jpeg?alt=media&token=41fd4a78-61e2-44b7-96c0-c22a40da18f2", groupId: "eUMO0EvYTXwqSon9Ppze"), user: User(id: "RtJMCaH57QMBXMxb0q5CLUohgzW2", name: "Kris", mobileNumber: "+447432426798", imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2FRtJMCaH57QMBXMxb0q5CLUohgzW2.jpeg?alt=media&token=06455850-2c7f-4cce-ad82-55e1c395b906", groups: ["eUMO0EvYTXwqSon9Ppze"]))
     }
 }
