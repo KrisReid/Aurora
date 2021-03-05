@@ -14,50 +14,50 @@ struct ChatView: View {
     let chat: Chat
     let user: User
     
+    @State var placeholderText: String = "message ..."
     @State var typingMessage: String = ""
     @ObservedObject private var keyboard = KeyboardResponder()
     @ObservedObject var vm = ChatViewModel()
     
     var body: some View {
-        
-        NavigationView {
-            VStack {
-                ScrollView {
-                    ScrollViewReader { value in
-                        
-//                        Button("Jump to last") {
-//                            value.scrollTo(vm.messages.last?.id, anchor: .bottom)
-//                        }
-                        
-                        ForEach(vm.messages, id: \.self) { message in
-                            MessageView(currentMessage: message, imageUrl: chat.userImageUrl, isCurrentUser: message.userId == user.id ? true : false)
-                                .id(message.id)
-                        }
-                        .onAppear(perform: {
-//                            value.scrollTo("KhkuZDCZLRj5fWVJzR9l", anchor: .bottom)
-                            value.scrollTo(vm.messages.last?.id, anchor: .bottom)
-                        })
+        VStack {
+            ScrollView {
+                ScrollViewReader { value in
+                    ForEach(vm.messages, id: \.self) { message in
+                        MessageView(currentMessage: message, imageUrl: chat.userImageUrl, isCurrentUser: message.userId == user.id ? true : false)
+                            .id(message.id)
                     }
+                    .onAppear(perform: {
+                        value.scrollTo(vm.messages.last?.id, anchor: .bottom)
+                    })
                 }
-                .padding(.horizontal)
-
-                Spacer()
-
-                HStack {
-                    TextField("Message...", text: $typingMessage)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(minHeight: CGFloat(30))
-                    Button(action: sendMessage) {
-                        Text("Send")
-                    }
-                    .disabled(typingMessage == "" ? true : false)
-                }
-                .frame(minHeight: CGFloat(50)).padding()
             }
-            .navigationBarTitle(Text(chat.userName), displayMode: .inline)
-            .padding(.bottom, keyboard.currentHeight)
-            .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
+            .padding(.horizontal)
+
+            Spacer()
+
+            HStack {
+                TextEditor(text: $typingMessage)
+                    .frame(width: .infinity, height: 55, alignment: .center)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color(#colorLiteral(red: 0.8078074455, green: 0.8181154728, blue: 0.8177809715, alpha: 1)), lineWidth: 1)
+                    )
+                Button(action: sendMessage) {
+                    Image(systemName: "arrow.up.circle.fill")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .padding(.leading)
+                        .foregroundColor(typingMessage == "" ? Color.gray : Color.blue)
+                    
+                }
+                .disabled(typingMessage == "" ? true : false)
+            }
+            .frame(minHeight: CGFloat(50)).padding()
         }
+        .navigationBarTitle(Text(chat.userName), displayMode: .inline)
+        .padding(.bottom, keyboard.currentHeight)
+        .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
         .onAppear(perform: {
             vm.fetchGroupMessages(groupId: chat.groupId)
         })
