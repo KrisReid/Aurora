@@ -35,7 +35,7 @@ struct ChatsView: View {
                             
                             ForEach(vm.chats, id: \.self) { chat in
                                 NavigationLink (
-                                    destination: ChatView(chat: chat, user: vm.currentUser),
+                                    destination: ChatView(chat: chat, user: vm.currentUser, vm: .init(groupId: chat.groupId)),
                                     label: {
                                         ChatsCellView(chat: chat)
                                             .foregroundColor(Color(.label))

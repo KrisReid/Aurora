@@ -14,11 +14,19 @@ import FirebaseFirestoreSwift
 class ChatViewModel: ObservableObject {
         
     @Published var messages = [Message]()
+    @Published var lastMessageId: String = ""
     
-    init() {
-
+    
+    init(groupId: String) {
+        self.fetchGroupMessages(groupId: groupId)
+    }
+    
+    
+    func fetchLastMessageID() {
+        self.lastMessageId = messages.last?.id ?? ""
     }
 
+    
     func fetchGroupMessages(groupId: String) {
         Firestore.firestore().collection("groups").document(groupId).collection("messages").order(by: "timeDate").addSnapshotListener { documentSnapshot, error in
             guard let documents = documentSnapshot?.documents else { return }
@@ -33,11 +41,15 @@ class ChatViewModel: ObservableObject {
         do {
             let newMessageRef = Firestore.firestore().collection("groups").document(groupId).collection("messages").document()
             let message = Message(id: newMessageRef.documentID, content: content, userId: userId, timeDate: Timestamp(date: Date()))
-            try newMessageRef.setData(from: message)
+            try newMessageRef.setData(from: message, completion: { (err) in
+                self.fetchLastMessageID()
+            })
+//            try newMessageRef.setData(from: message)
         }
         catch {
             print(error.localizedDescription)
         }
     }
+    
     
 }
