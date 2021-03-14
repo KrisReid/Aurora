@@ -12,13 +12,13 @@ import FirebaseFirestoreSwift
 
 
 class ChatViewModel: ObservableObject {
-        
+    
     @Published var messages = [Message]()
     @Published var lastMessageId: String = ""
     
     
     init(groupId: String) {
-        self.fetchGroupMessages(groupId: groupId)
+        fetchGroupMessages(groupId: groupId)
     }
     
     
@@ -44,7 +44,6 @@ class ChatViewModel: ObservableObject {
             try newMessageRef.setData(from: message, completion: { (err) in
                 self.fetchLastMessageID()
             })
-//            try newMessageRef.setData(from: message)
         }
         catch {
             print(error.localizedDescription)
