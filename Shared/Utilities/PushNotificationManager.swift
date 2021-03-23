@@ -14,12 +14,6 @@ import UserNotifications
 
 class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCenterDelegate {
     
-    let userID: String
-    init(userID: String) {
-        self.userID = userID
-        super.init()
-    }
-    
     
     func registerForPushNotifications() {
         if #available(iOS 10.0, *) {
@@ -49,10 +43,6 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
         }
     }
     
-    
-//    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-//        print(remoteMessage.appData)
-//    }
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         updateFirestorePushTokenIfNeeded()

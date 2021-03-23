@@ -28,9 +28,11 @@ class LoginViewModel: ObservableObject {
     
     @Published var inputImage: UIImage?
 
-    // User Logged Status
+    // User Logged in Status
     @AppStorage("log_Status") var status = false
     
+    // FCM Token
+    @AppStorage ("fcmToken") var fcmToken: String?
 
     func getCountryCode() -> String {
         let countryCode = Locale.current.regionCode ?? ""
