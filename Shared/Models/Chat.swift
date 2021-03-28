@@ -9,12 +9,6 @@ import Foundation
 
 
 struct Chat: Codable, Hashable {
-//    var reciever: User
-    var userId: String
-    var userName: String
-    var userMobileNumber: String
-    var userImageUrl: String
-    var userFcmToken: String
+    var reciever: User
     var groupId: String
-    
 }

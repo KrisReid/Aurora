@@ -53,7 +53,7 @@ class ChatsViewModel: ObservableObject {
                 let createdOn = (data["createdOn"] as? Timestamp)?.dateValue() ?? Date()
 
                 //get users which aren't me and where the group is within the group array
-                self.fetchGroupUser(uid: uid, groupId: id)
+                self.fetchRecieverInformationFromGroup(uid: uid, groupId: id)
 
                 return Group(id: id, createdBy: createdBy, members: members, createdOn: createdOn)
             }
@@ -62,20 +62,23 @@ class ChatsViewModel: ObservableObject {
     }
     
     //Fetch the other contact from within the group ID that is passed
-    private func fetchGroupUser(uid: String, groupId: String) {
+    private func fetchRecieverInformationFromGroup(uid: String, groupId: String) {
         Firestore.firestore().collection("users").whereField("groups", isEqualTo: [groupId]).whereField("id", isNotEqualTo: uid).getDocuments { (querySnapshot, error) in
             
             guard let documents = querySnapshot?.documents else { return }
             
             self.chats.append(contentsOf: documents.map({ (queryDocumentSnapshot) -> Chat in
                 let data = queryDocumentSnapshot.data()
-                let userId = data["id"] as? String ?? ""
-                let userName = data["name"] as? String ?? ""
-                let userMobileNumber = data["mobileNumber"] as? String ?? ""
-                let userFcmToken = data["fcmToken"] as? String ?? ""
-                let userImageUrl = data["imageUrl"] as? String ?? ""
                 
-                return Chat(userId: userId, userName: userName, userMobileNumber: userMobileNumber, userImageUrl: userImageUrl, userFcmToken: userFcmToken, groupId: groupId)
+                let recieverId = data["id"] as? String ?? ""
+                let recieverName = data["name"] as? String ?? ""
+                let recieverMobileNumber = data["mobileNumber"] as? String ?? ""
+                let recieverFcmToken = data["fcmToken"] as? String ?? ""
+                let recieverImageUrl = data["imageUrl"] as? String ?? ""
+                let recieverGroups = data["groups"] as? [String] ?? [""]
+                
+                return Chat(reciever: User(id: recieverId, name: recieverName, mobileNumber: recieverMobileNumber, imageUrl: recieverImageUrl, fcmToken: recieverFcmToken, groups: recieverGroups), groupId: groupId)
+                
             }))
         }
     }
