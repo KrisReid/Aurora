@@ -30,15 +30,11 @@ class LoginViewModel: ObservableObject {
 
     // User Logged in Status
     @AppStorage("log_Status") var status = false
-    
-    // FCM Token
-    @AppStorage ("fcmToken") var fcmToken: String?
 
     func getCountryCode() -> String {
         let countryCode = Locale.current.regionCode ?? ""
         return countries[countryCode] ?? ""
     }
-
 
     func sendCode(){
         self.loading = true
@@ -148,8 +144,7 @@ class LoginViewModel: ObservableObject {
                                     "name" : self.name,
                                     "mobileNumber" : "+\(self.getCountryCode())\(self.mobileNumber)",
                                     "imageUrl" : userProfileImage,
-                                    //Not yet solviong for maintaining a token if it changes
-                                    "fcmToken" : self.fcmToken ?? "",
+                                    "fcmToken" : "",
                                     "groups" : []
                                 ]
 

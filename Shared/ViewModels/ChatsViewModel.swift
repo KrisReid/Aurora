@@ -30,6 +30,11 @@ class ChatsViewModel: ObservableObject {
         Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else { return }
             try? self.currentUser = document.data(as: User.self) ?? User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [])
+            
+            //Register for push notifications
+            let pushManager = PushNotificationManager(userID: uid)
+            pushManager.registerForPushNotifications()
+            
         }
     }
     
