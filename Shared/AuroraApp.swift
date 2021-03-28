@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Firebase
-import UserNotifications
+
 
 @main
 struct AuroraApp: App {
@@ -32,7 +32,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         return true
     }
 
-    //Both Required for push?
+    //Both functions required for push notifications
     internal func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         completionHandler(UIBackgroundFetchResult.newData)
     }

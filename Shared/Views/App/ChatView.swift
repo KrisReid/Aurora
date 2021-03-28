@@ -73,7 +73,7 @@ struct ChatView: View {
     }
 
     func sendMessage() {
-        vm.postMessage(content: typingMessage, userId: user.id, groupId: chat.groupId, fcmToken: chat.userFcmToken, recieverName: chat.userName)
+        vm.postMessage(content: typingMessage, userId: user.id, groupId: chat.groupId, fcmToken: chat.userFcmToken, recieverName: user.name)
         typingMessage = ""
         hideKeyboard()
     }
