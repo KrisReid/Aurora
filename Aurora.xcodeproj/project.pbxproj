@@ -72,7 +72,6 @@
 		02AF34AF25E26BA20031F416 /* CreateChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */; };
 		02AF34BB25E3ECBB0031F416 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34BA25E3ECBB0031F416 /* ChatView.swift */; };
 		02AF34BC25E3ECBB0031F416 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34BA25E3ECBB0031F416 /* ChatView.swift */; };
-		02AF34C425E7AEDE0031F416 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34C325E7AEDE0031F416 /* Services.swift */; };
 		02AF34CC25E82F0E0031F416 /* ChatsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34CB25E82F0E0031F416 /* ChatsCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +110,6 @@
 		02AF34A825E2662B0031F416 /* CreateChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatView.swift; sourceTree = "<group>"; };
 		02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatViewModel.swift; sourceTree = "<group>"; };
 		02AF34BA25E3ECBB0031F416 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		02AF34C325E7AEDE0031F416 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		02AF34CB25E82F0E0031F416 /* ChatsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				0258A8DD25C18B9000DD7FD6 /* Utilities */,
-				02AF34C225E7AECA0031F416 /* Services */,
 				0258A8CE25C0D84C00DD7FD6 /* Models */,
 				0258A8C825C0D6D400DD7FD6 /* ViewModels */,
 				0258A8C025C0A0CE00DD7FD6 /* Views */,
@@ -270,14 +267,6 @@
 				02AF34A825E2662B0031F416 /* CreateChatView.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		02AF34C225E7AECA0031F416 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				02AF34C325E7AEDE0031F416 /* Services.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,7 +385,6 @@
 			files = (
 				0295DE0225EB98C10046E389 /* Chat.swift in Sources */,
 				0295DDEC25EAFC0D0046E389 /* ContentMessageView.swift in Sources */,
-				02AF34C425E7AEDE0031F416 /* Services.swift in Sources */,
 				02AF348D25DAE8340031F416 /* ChatsViewModel.swift in Sources */,
 				0218AF4925C534F7006D2E49 /* ImagePicker.swift in Sources */,
 				0218AF6725C58A72006D2E49 /* Indicator.swift in Sources */,

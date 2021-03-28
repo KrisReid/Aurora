@@ -16,7 +16,6 @@ class ChatsViewModel: ObservableObject {
     
     @Published var groups = [Group]()
     @Published var chats = [Chat]()
-//    @Published var groupUsers = [Chat]()
     @Published var currentUser = User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [])
     
     
@@ -70,7 +69,6 @@ class ChatsViewModel: ObservableObject {
                 let userMobileNumber = data["mobileNumber"] as? String ?? ""
                 let userFcmToken = data["fcmToken"] as? String ?? ""
                 let userImageUrl = data["imageUrl"] as? String ?? ""
-//                let UserisCurrentUser = data["isCurrentUser"] as? Bool ?? true
                 
                 return Chat(userId: userId, userName: userName, userMobileNumber: userMobileNumber, userImageUrl: userImageUrl, userFcmToken: userFcmToken, groupId: groupId)
             }))
