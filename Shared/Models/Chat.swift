@@ -13,6 +13,7 @@ struct Chat: Codable, Hashable {
     var userName: String
     var userMobileNumber: String
     var userImageUrl: String
+    var userFcmToken: String
 //    var UserisCurrentUser: Bool
     var groupId: String
     

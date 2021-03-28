@@ -17,7 +17,7 @@ class ChatsViewModel: ObservableObject {
     @Published var groups = [Group]()
     @Published var chats = [Chat]()
 //    @Published var groupUsers = [Chat]()
-    @Published var currentUser = User(id: "", name: "", mobileNumber: "", imageUrl: "", groups: [])
+    @Published var currentUser = User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [])
     
     
     init() {
@@ -30,7 +30,7 @@ class ChatsViewModel: ObservableObject {
         let uid = Auth.auth().currentUser?.uid ?? ""
         Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else { return }
-            try? self.currentUser = document.data(as: User.self) ?? User(id: "", name: "", mobileNumber: "", imageUrl: "", groups: [])
+            try? self.currentUser = document.data(as: User.self) ?? User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [])
         }
     }
     
@@ -68,10 +68,11 @@ class ChatsViewModel: ObservableObject {
                 let userId = data["id"] as? String ?? ""
                 let userName = data["name"] as? String ?? ""
                 let userMobileNumber = data["mobileNumber"] as? String ?? ""
+                let userFcmToken = data["fcmToken"] as? String ?? ""
                 let userImageUrl = data["imageUrl"] as? String ?? ""
 //                let UserisCurrentUser = data["isCurrentUser"] as? Bool ?? true
                 
-                return Chat(userId: userId, userName: userName, userMobileNumber: userMobileNumber, userImageUrl: userImageUrl, groupId: groupId)
+                return Chat(userId: userId, userName: userName, userMobileNumber: userMobileNumber, userImageUrl: userImageUrl, userFcmToken: userFcmToken, groupId: groupId)
             }))
         }
     }

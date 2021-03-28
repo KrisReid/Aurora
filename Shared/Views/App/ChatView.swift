@@ -23,7 +23,7 @@ struct ChatView: View {
             ScrollView {
                 ScrollViewReader { value in
                     
-                    Text("Keyboard Height: \(keyboard.currentHeight)")
+//                    Text("Keyboard Height: \(keyboard.currentHeight)")
                     
                     //Why does this line of code actually make things work? Is it just aa timing thing????
                     Button("") {
@@ -73,7 +73,7 @@ struct ChatView: View {
     }
 
     func sendMessage() {
-        vm.postMessage(content: typingMessage, userId: user.id, groupId: chat.groupId)
+        vm.postMessage(content: typingMessage, userId: user.id, groupId: chat.groupId, fcmToken: chat.userFcmToken, recieverName: chat.userName)
         typingMessage = ""
         hideKeyboard()
     }
@@ -83,6 +83,6 @@ struct ChatView: View {
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         
-        ChatView(chat: Chat(userId: "1GZDkkomqobMPhpaqUirtClFHLq1", userName: "Alison MB", userMobileNumber: "+447515509832", userImageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2F1GZDkkomqobMPhpaqUirtClFHLq1.jpeg?alt=media&token=41fd4a78-61e2-44b7-96c0-c22a40da18f2", groupId: "eUMO0EvYTXwqSon9Ppze"), user: User(id: "RtJMCaH57QMBXMxb0q5CLUohgzW2", name: "Kris", mobileNumber: "+447432426798", imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2FRtJMCaH57QMBXMxb0q5CLUohgzW2.jpeg?alt=media&token=06455850-2c7f-4cce-ad82-55e1c395b906", groups: ["eUMO0EvYTXwqSon9Ppze"]), vm: .init(groupId: "eUMO0EvYTXwqSon9Ppze"))
+        ChatView(chat: Chat(userId: "1GZDkkomqobMPhpaqUirtClFHLq1", userName: "Alison MB", userMobileNumber: "+447515509832", userImageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2F1GZDkkomqobMPhpaqUirtClFHLq1.jpeg?alt=media&token=41fd4a78-61e2-44b7-96c0-c22a40da18f2", userFcmToken: "", groupId: "eUMO0EvYTXwqSon9Ppze"), user: User(id: "RtJMCaH57QMBXMxb0q5CLUohgzW2", name: "Kris", mobileNumber: "+447432426798", imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2FRtJMCaH57QMBXMxb0q5CLUohgzW2.jpeg?alt=media&token=06455850-2c7f-4cce-ad82-55e1c395b906", fcmToken: "", groups: ["eUMO0EvYTXwqSon9Ppze"]), vm: .init(groupId: "eUMO0EvYTXwqSon9Ppze"))
     }
 }

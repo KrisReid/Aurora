@@ -148,6 +148,8 @@ class LoginViewModel: ObservableObject {
                                     "name" : self.name,
                                     "mobileNumber" : "+\(self.getCountryCode())\(self.mobileNumber)",
                                     "imageUrl" : userProfileImage,
+                                    //Not yet solviong for maintaining a token if it changes
+                                    "fcmToken" : self.fcmToken ?? "",
                                     "groups" : []
                                 ]
 

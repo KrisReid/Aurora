@@ -54,6 +54,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     
     func updateFirestorePushTokenIfNeeded() {
         if let token = Messaging.messaging().fcmToken {
+            //Not yet solviong for maintaining a token if it changes
             self.fcmToken = token
         }
     }

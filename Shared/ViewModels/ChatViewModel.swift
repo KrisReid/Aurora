@@ -37,11 +37,17 @@ class ChatViewModel: ObservableObject {
         }
     }
     
-    func postMessage(content: String, userId: String, groupId: String) {
+    func postMessage(content: String, userId: String, groupId: String, fcmToken: String, recieverName: String) {
         do {
             let newMessageRef = Firestore.firestore().collection("groups").document(groupId).collection("messages").document()
             let message = Message(id: newMessageRef.documentID, content: content, userId: userId, timeDate: Timestamp(date: Date()))
             try newMessageRef.setData(from: message, completion: { (err) in
+                
+                // send push
+                let sender = PushNotificationSender()
+                sender.sendPushNotification(to: fcmToken, title: recieverName, body: content)
+                
+                //fetch last message in the array
                 self.fetchLastMessageID()
             })
         }
