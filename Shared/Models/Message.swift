@@ -9,7 +9,6 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-
 struct Message : Identifiable, Codable, Hashable {
     var id: String
     var content: String
