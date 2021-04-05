@@ -15,6 +15,7 @@ struct MessagesView: View {
         UINavigationBar.appearance().backgroundColor = UIColor(Color("Button_Background_Color"))
         UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))]
         UITableView.appearance().backgroundColor = UIColor(Color("Button_Background_Color"))
+        UITableViewCell.appearance().selectionStyle = .none
     }
     
     

@@ -32,6 +32,7 @@ struct Group: Codable, Hashable {
     var createdBy: String
     var members: [String]
     var createdOn: Date
+    var lastMessage: String
     var dateString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, dd 'of' MMMM"

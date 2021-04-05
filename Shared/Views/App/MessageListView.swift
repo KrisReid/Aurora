@@ -52,7 +52,7 @@ struct MessageCellView: View {
             VStack (alignment: .leading){
                 Text(message.reciever.name)
                     .font(.system(size: 16, weight: .regular))
-                Text("👋🏻 Hey Kris")
+                Text("Hey")
                     .font(.system(size: 16, weight: .light))
                     .padding(.top, 1)
             }
@@ -67,6 +67,6 @@ struct MessageCellView: View {
 
 struct MessageListView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageListView(chats: [Chat(reciever: User(id: "v1IiXJdJe7Ww1GHIKMEePocoxYs2", name: "Alison Bell", mobileNumber: "+447515509832", imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2Fv1IiXJdJe7Ww1GHIKMEePocoxYs2.jpeg?alt=media&token=2e61469b-3ac5-4c9d-8b85-625f1e985010", fcmToken: "dDrJkW-JR07ErL2071RTM3:APA91bEyK3uypR7w-FnyesetsE4uRmqnfVjiI4BdU9yoZUn9_MXDJBayreG4O8uG8N5u14-1ZVBGOpKyZ0LdsBYxyplWbf3rXgolt39H6UL3C3kvaKhcJ8XS2yzHZea_QXbd3BgLbES7", groups: ["eUMO0EvYTXwqSon9Ppze"]), groupId: "eUMO0EvYTXwqSon9Ppze")], currentUser: User(id: "1234", name: "Kris", mobileNumber: "+447432426798", imageUrl: "Sandra", fcmToken: "123456778", groups: [""]))
+        MessageListView(chats: [Chat(reciever: User(id: "v1IiXJdJe7Ww1GHIKMEePocoxYs2", name: "Alison Bell", mobileNumber: "+447515509832", imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2Fv1IiXJdJe7Ww1GHIKMEePocoxYs2.jpeg?alt=media&token=2e61469b-3ac5-4c9d-8b85-625f1e985010", fcmToken: "dDrJkW-JR07ErL2071RTM3:APA91bEyK3uypR7w-FnyesetsE4uRmqnfVjiI4BdU9yoZUn9_MXDJBayreG4O8uG8N5u14-1ZVBGOpKyZ0LdsBYxyplWbf3rXgolt39H6UL3C3kvaKhcJ8XS2yzHZea_QXbd3BgLbES7", groups: ["eUMO0EvYTXwqSon9Ppze"]), groupId: "eUMO0EvYTXwqSon9Ppze", lastMessage: "Hey")], currentUser: User(id: "1234", name: "Kris", mobileNumber: "+447432426798", imageUrl: "Sandra", fcmToken: "123456778", groups: [""]))
     }
 }

@@ -49,20 +49,21 @@ class ChatsViewModel: ObservableObject {
                 let data = queryDocumentSnapshot.data()
                 let id = data["id"] as? String ?? ""
                 let createdBy = data["createdBy"] as? String ?? ""
+                let lastMessage = data["lastMessage"] as? String ?? ""
                 let members = data["members"] as? [String] ?? [""]
                 let createdOn = (data["createdOn"] as? Timestamp)?.dateValue() ?? Date()
 
                 //get users which aren't me and where the group is within the group array
-                self.fetchRecieverInformationFromGroup(uid: uid, groupId: id)
+                self.fetchRecieverInformationFromGroup(uid: uid, groupId: id, lastMessage: lastMessage)
 
-                return Group(id: id, createdBy: createdBy, members: members, createdOn: createdOn)
+                return Group(id: id, createdBy: createdBy, members: members, createdOn: createdOn, lastMessage: lastMessage)
             }
             
         }
     }
     
     //Fetch the other contact from within the group ID that is passed
-    private func fetchRecieverInformationFromGroup(uid: String, groupId: String) {
+    private func fetchRecieverInformationFromGroup(uid: String, groupId: String, lastMessage: String) {
         Firestore.firestore().collection("users").whereField("groups", isEqualTo: [groupId]).whereField("id", isNotEqualTo: uid).getDocuments { (querySnapshot, error) in
             
             guard let documents = querySnapshot?.documents else { return }
@@ -77,7 +78,7 @@ class ChatsViewModel: ObservableObject {
                 let recieverImageUrl = data["imageUrl"] as? String ?? ""
                 let recieverGroups = data["groups"] as? [String] ?? [""]
                 
-                return Chat(reciever: User(id: recieverId, name: recieverName, mobileNumber: recieverMobileNumber, imageUrl: recieverImageUrl, fcmToken: recieverFcmToken, groups: recieverGroups), groupId: groupId)
+                return Chat(reciever: User(id: recieverId, name: recieverName, mobileNumber: recieverMobileNumber, imageUrl: recieverImageUrl, fcmToken: recieverFcmToken, groups: recieverGroups), groupId: groupId, lastMessage: lastMessage)
                 
             }))
         }

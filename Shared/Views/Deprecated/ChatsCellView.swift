@@ -41,9 +41,9 @@ struct ChatsCellView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             
-            ChatsCellView(chat: Chat(reciever: User(id: "12345", name: "Kris Reid", mobileNumber: "07432426798", imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2Fg0rRsxswllemj0nrp3lCBNYVGrj1.jpeg?alt=media&token=cf2d8fc9-74df-4591-bc20-0be03cc69f53", fcmToken: "", groups: [""]), groupId: "12345"))
+            ChatsCellView(chat: Chat(reciever: User(id: "12345", name: "Kris Reid", mobileNumber: "07432426798", imageUrl: "https://firebasestorage.googleapis.com/v0/b/aurora-2086f.appspot.com/o/users%2Fg0rRsxswllemj0nrp3lCBNYVGrj1.jpeg?alt=media&token=cf2d8fc9-74df-4591-bc20-0be03cc69f53", fcmToken: "", groups: [""]), groupId: "12345", lastMessage: "Hey"))
             
-            ChatsCellView(chat: Chat(reciever: User(id: "442567", name: "Ali Bell", mobileNumber: "07399572455", imageUrl: "https://static.euronews.com/articles/stories/04/97/98/10/1440x810_cmsv2_9446b8f9-0634-5f1d-94ab-f3fa5fef911a-4979810.jpg", fcmToken: "", groups: [""]), groupId: "12345"))
+            ChatsCellView(chat: Chat(reciever: User(id: "442567", name: "Ali Bell", mobileNumber: "07399572455", imageUrl: "https://static.euronews.com/articles/stories/04/97/98/10/1440x810_cmsv2_9446b8f9-0634-5f1d-94ab-f3fa5fef911a-4979810.jpg", fcmToken: "", groups: [""]), groupId: "12345", lastMessage: "Hey"))
             
         }
     }

@@ -11,4 +11,5 @@ import Foundation
 struct Chat: Codable, Hashable {
     var reciever: User
     var groupId: String
+    var lastMessage: String
 }
