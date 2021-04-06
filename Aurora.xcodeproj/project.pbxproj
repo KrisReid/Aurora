@@ -84,6 +84,8 @@
 		02AF34BB25E3ECBB0031F416 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34BA25E3ECBB0031F416 /* ChatView.swift */; };
 		02AF34BC25E3ECBB0031F416 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34BA25E3ECBB0031F416 /* ChatView.swift */; };
 		02AF34CC25E82F0E0031F416 /* ChatsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AF34CB25E82F0E0031F416 /* ChatsCellView.swift */; };
+		02DC4EA6261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC4EA5261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift */; };
+		02DC4EA7261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC4EA5261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,7 @@
 		02AF34AD25E26BA20031F416 /* CreateChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatViewModel.swift; sourceTree = "<group>"; };
 		02AF34BA25E3ECBB0031F416 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		02AF34CB25E82F0E0031F416 /* ChatsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsCellView.swift; sourceTree = "<group>"; };
+		02DC4EA5261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCarouselViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				02AF348C25DAE8340031F416 /* ChatsViewModel.swift */,
+				02DC4EA5261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift */,
 				02AF348525DADAB80031F416 /* ChatsView.swift */,
 				02AF34CB25E82F0E0031F416 /* ChatsCellView.swift */,
 				0295DE0825EB9A470046E389 /* UserView.swift */,
@@ -435,6 +439,7 @@
 				0211BA4E26131C50003170C2 /* MessagesView.swift in Sources */,
 				0258A8C225C0A0E300DD7FD6 /* Login.swift in Sources */,
 				0211BA7126151937003170C2 /* MessagesViewModel.swift in Sources */,
+				02DC4EA6261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift in Sources */,
 				02AF348625DADAB80031F416 /* ChatsView.swift in Sources */,
 				0258A88925C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
 				0295DDF125EAFC440046E389 /* Message.swift in Sources */,
@@ -474,6 +479,7 @@
 				0295DDED25EAFC0D0046E389 /* ContentMessageView.swift in Sources */,
 				0295DDE825EAFBC90046E389 /* MessageView.swift in Sources */,
 				0258A88A25C02CCB00DD7FD6 /* AuroraApp.swift in Sources */,
+				02DC4EA7261CE44700BF7EF2 /* FavouriteCarouselViewModel.swift in Sources */,
 				0218AF5A25C53653006D2E49 /* User.swift in Sources */,
 				0295DE0A25EB9A470046E389 /* UserView.swift in Sources */,
 				0258A8D125C0D85600DD7FD6 /* Countries.swift in Sources */,

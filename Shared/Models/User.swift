@@ -15,14 +15,16 @@ struct User: Identifiable, Codable, Hashable {
     var imageUrl: String
     var fcmToken: String
     var groups: [String]
+    var favourites: [String]
 
-    init(id: String, name: String, mobileNumber: String, imageUrl: String, fcmToken: String, groups: [String]) {
+    init(id: String, name: String, mobileNumber: String, imageUrl: String, fcmToken: String, groups: [String], favourites: [String]) {
         self.id = id
         self.name = name
         self.mobileNumber = mobileNumber
         self.imageUrl = imageUrl
         self.fcmToken = fcmToken
         self.groups = groups
+        self.favourites = favourites
     }
 }
 

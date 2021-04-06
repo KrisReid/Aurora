@@ -16,7 +16,8 @@ class MessagesViewModel: ObservableObject {
     
     @Published var groups = [Group]()
     @Published var chats = [Chat]()
-    @Published var currentUser = User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [])
+    @Published var currentUser = User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [], favourites: [])
+    @Published var favourites = [User]()
 
     @Published var searchTerm: String = ""
     
@@ -31,7 +32,17 @@ class MessagesViewModel: ObservableObject {
         let uid = Auth.auth().currentUser?.uid ?? "JlYwetxL2GN30CXMdWwrsiU5Qeq2"
         Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else { return }
-            try? self.currentUser = document.data(as: User.self) ?? User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [])
+            try? self.currentUser = document.data(as: User.self) ?? User(id: "", name: "", mobileNumber: "", imageUrl: "", fcmToken: "", groups: [], favourites: [])
+            
+            //fetch usersfavourites
+            Firestore.firestore().collection("users").whereField("id", in: self.currentUser.favourites).addSnapshotListener { (querySnapshot, error) in
+
+                guard let documents = querySnapshot?.documents else { return }
+                self.favourites = documents.compactMap { (queryDocumentSnapshot) -> User? in
+                    return try? queryDocumentSnapshot.data(as: User.self)
+                }
+            }
+            
 
             //Register for push notifications
             let pushManager = PushNotificationManager(userID: uid)
@@ -42,6 +53,7 @@ class MessagesViewModel: ObservableObject {
     
 
     func fetchMessages() {
+
         let uid = Auth.auth().currentUser?.uid ?? "JlYwetxL2GN30CXMdWwrsiU5Qeq2"
 
         Firestore.firestore().collection("groups").whereField("members", arrayContains: uid).addSnapshotListener { (documentSnapshot, error) in
@@ -58,6 +70,15 @@ class MessagesViewModel: ObservableObject {
 
                 //Clear the chat model before we populate it with updates (SHIT)
                 self.chats.removeAll()
+                
+                
+                // When a message gets updated, then I am updating the "Groups" and then calling the "fetchMessagesReciever" function (twice for my user) which is the thing that actually then goes on to display the update. But because this is just appending to the array we are seeing duplicate entries upon a new entry being added
+                
+                //SOLUTIONS
+                // 1. Clear the array before reloading it (expensive)
+                // 2. Only Update the certain fields somehow? (If last message updates)
+                // 3. Add the last message data into the User model? ----------
+                // 4.
 
                 //get users which aren't me and where the group is within the group array
                 self.fetchMessagesReciever(uid: uid, groupId: id, lastMessage: lastMessage)
@@ -68,25 +89,13 @@ class MessagesViewModel: ObservableObject {
     }
     
     
-    
     private func fetchMessagesReciever(uid: String, groupId: String, lastMessage: String) {
         
-        print("0000000")
-        print(uid)
-        print(groupId)
-        print(lastMessage)
-        
         Firestore.firestore().collection("users").whereField("groups", arrayContains: groupId).whereField("id", isNotEqualTo: uid).getDocuments { (querySnapshot, error) in
-        
-//        Firestore.firestore().collection("users").whereField("groups", isEqualTo: [groupId]).whereField("id", isNotEqualTo: uid).addSnapshotListener { (querySnapshot, error) in
-            
-            print("111111111")
                         
             guard let documents = querySnapshot?.documents else { return }
             
             self.chats.append(contentsOf: documents.map({ (queryDocumentSnapshot) -> Chat in
-                
-                print("22222222222")
 
                 let data = queryDocumentSnapshot.data()
 
@@ -96,10 +105,9 @@ class MessagesViewModel: ObservableObject {
                 let recieverFcmToken = data["fcmToken"] as? String ?? ""
                 let recieverImageUrl = data["imageUrl"] as? String ?? ""
                 let recieverGroups = data["groups"] as? [String] ?? [""]
-                
-                print("44444444")
+                let revieverFavourites = data["favourites"] as? [String] ?? [""]
 
-                return Chat(reciever: User(id: recieverId, name: recieverName, mobileNumber: recieverMobileNumber, imageUrl: recieverImageUrl, fcmToken: recieverFcmToken, groups: recieverGroups), groupId: groupId, lastMessage: lastMessage)
+                return Chat(reciever: User(id: recieverId, name: recieverName, mobileNumber: recieverMobileNumber, imageUrl: recieverImageUrl, fcmToken: recieverFcmToken, groups: recieverGroups, favourites: revieverFavourites), groupId: groupId, lastMessage: lastMessage)
 
             }))
             

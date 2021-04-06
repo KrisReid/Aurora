@@ -33,7 +33,7 @@ struct MessagesView: View {
                     SearchView(searchTerm: self.$vm.searchTerm)
                         .padding()
                     
-                    FavouriteCarouselView()
+                    FavouriteCarouselView(favourites: vm.favourites)
                                         
                     //Figure out the correct data models we want to apply within the app
                     MessageListView(chats: vm.chats, currentUser: vm.currentUser)
