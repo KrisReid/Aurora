@@ -34,9 +34,10 @@ struct MessagesView: View {
                         .padding()
                     
                     FavouriteCarouselView()
-                    
+                                        
                     //Figure out the correct data models we want to apply within the app
                     MessageListView(chats: vm.chats, currentUser: vm.currentUser)
+
                 }
             }
             .navigationBarTitle("Messages")

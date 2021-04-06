@@ -47,6 +47,9 @@ class ChatViewModel: ObservableObject {
                 let sender = PushNotificationSender()
                 sender.sendPushNotification(to: fcmToken, title: senderName, body: content)
                 
+                //save latest message
+                Firestore.firestore().collection("groups").document(groupId).setData(["lastMessage":content], merge: true)
+                
                 //fetch last message in the array
                 self.fetchLastMessageID()
             })
